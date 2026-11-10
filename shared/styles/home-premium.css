@@ -1,0 +1,47 @@
+/* Focus stays inside its poster; no zoom or changing row geometry. */
+.content-card:hover,
+.content-card:focus,
+.content-card:focus-visible,
+.content-card:focus-within {
+  transform: none;
+}
+.grid-header,
+.focus-meta {
+  display: block;
+  position: absolute;
+  top: 140px;
+  left: 225px;
+  right: 72px;
+  height: 164px;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  z-index: 5;
+  pointer-events: none;
+}
+.grid-header__title,
+.focus-meta__title {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  max-height: 90px;
+  overflow: hidden;
+  margin: 0;
+  color: var(--color-text-primary);
+  font-size: 38px;
+  font-weight: 700;
+  line-height: 45px;
+}
+.grid-header__desc,
+.focus-meta__desc {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  max-height: 64px;
+  overflow: hidden;
+  margin: 8px 0 0;
+  color: var(--color-text-secondary);
+  font-size: 24px;
+  line-height: 32px;
+}

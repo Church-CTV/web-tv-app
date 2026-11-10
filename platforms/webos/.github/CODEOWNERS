@@ -1,0 +1,23 @@
+# CODEOWNERS — Require review for critical paths
+
+# Root configs — critical infrastructure
+.github/              @dominick253
+src/                  @dominick253
+tests/                @dominick253
+package.json          @dominick253
+tsconfig.json         @dominick253
+vite.config.ts        @dominick253
+vitest.config.ts      @dominick253
+appinfo.json          @dominick253
+
+# Core adapters — must match @ctv/core contracts
+src/Adapter/          @dominick253
+
+# UI layer — high regression risk
+src/ui/               @dominick253
+
+# Utilities
+src/utils/            @dominick253
+
+# Root entry
+src/App.ts            @dominick253

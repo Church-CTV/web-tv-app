@@ -1,0 +1,22 @@
+{
+  "name": "@ctv/vizio",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite --port 3003",
+    "test": "vitest run --pool=forks",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "@ctv/core": "file:../../core",
+    "@ctv/shared-ui": "file:../../shared/ui"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3",
+    "vite": "^7.3.0",
+    "vitest": "^5.1.0",
+    "jsdom": "^29.1.1"
+  }
+}

@@ -1,0 +1,143 @@
+{
+  "providerName": "Example Channel",
+  "lastUpdated": "2026-09-04T12:00:00Z",
+  "language": "en",
+  "cardStyle": {
+    "showTitle": true,
+    "showDescription": true,
+    "titleFont": "Arial",
+    "descriptionFont": "Arial",
+    "titleColor": "#ffffff",
+    "descriptionColor": "#cccccc",
+    "titleNumLines": 2,
+    "descriptionNumLines": 2,
+    "showDetailTitle": true,
+    "showDetailDescription": true,
+    "detailTitleFont": "Arial",
+    "detailDescriptionFont": "Arial",
+    "detailTitleColor": "#ffffff",
+    "detailDescriptionColor": "#cccccc",
+    "detailTitleNumLines": 2,
+    "detailDescriptionNumLines": 4
+  },
+  "config": {
+    "channel": {
+      "name": "Test",
+      "description": "Test channel",
+      "language": "en",
+      "copyright": "2026 Test"
+    },
+    "branding": {
+      "colors": {
+        "background": "#000000",
+        "surface": "#111111",
+        "accent": "#ff0000",
+        "textPrimary": "#ffffff",
+        "textSecondary": "#cccccc",
+        "focus": "#ffff00",
+        "error": "#ff0000"
+      },
+      "images": {
+        "overhangLogo": "logo.png",
+        "backgroundImage": "bg.png",
+        "iconFocus": "icon.png"
+      },
+      "fonts": {
+        "title": "Arial",
+        "body": "Arial",
+        "caption": "Arial",
+        "heading": "Arial"
+      },
+      "spacing": {
+        "marginHorizontal": 16,
+        "marginVertical": 16
+      },
+      "animation": {
+        "cardScale": 1.05,
+        "transitionDuration": 200
+      }
+    },
+    "cardStyle": {
+      "showTitle": true,
+      "showDescription": true,
+      "titleFont": "Arial",
+      "descriptionFont": "Arial",
+      "titleColor": "#ffffff",
+      "descriptionColor": "#cccccc",
+      "titleNumLines": 2,
+      "descriptionNumLines": 2,
+      "showDetailTitle": true,
+      "showDetailDescription": true,
+      "detailTitleFont": "Arial",
+      "detailDescriptionFont": "Arial",
+      "detailTitleColor": "#ffffff",
+      "detailDescriptionColor": "#cccccc",
+      "detailTitleNumLines": 2,
+      "detailDescriptionNumLines": 4
+    },
+    "features": {
+      "search": true,
+      "deepLinking": true,
+      "analytics": true,
+      "crashReporting": true,
+      "overhangLogo": true,
+      "overhangClock": true,
+      "overhangOptions": true
+    },
+    "ui": {
+      "backgroundColor": "#000000",
+      "welcome": {
+        "enabled": true,
+        "title": "Welcome",
+        "subtitle": "Test"
+      },
+      "error": {
+        "title": "Error",
+        "message": "Test error",
+        "retryLabel": "Retry"
+      },
+      "loading": {
+        "message": "Loading..."
+      }
+    },
+    "server": {
+      "baseUrl": "https://api.example.com"
+    },
+    "content": {
+      "maxRows": 10,
+      "maxItemsPerRow": 10
+    },
+    "analytics": {
+      "enabled": true,
+      "exportUrl": "/api/analytics",
+      "exportIntervalSeconds": 300,
+      "maxEventsPerBatch": 100,
+      "flushOnError": true
+    }
+  },
+  "January 2026": [
+    {
+      "id": "video-test-1",
+      "title": "Test Video 1",
+      "shortDescription": "Description 1",
+      "thumbnail": "thumb1.png",
+      "hdPosterUrl": "poster1-hd.png",
+      "sdPosterUrl": "poster1-sd.png",
+      "url": "/stream/test-1",
+      "releaseDate": "2026-01-15",
+      "genres": [
+        "test"
+      ],
+      "content": {
+        "duration": 1200,
+        "videos": [
+          {
+            "url": "https://api.example.com/stream/test-1",
+            "quality": "FHD",
+            "videoType": "MP4"
+          }
+        ]
+      }
+    }
+  ]
+}

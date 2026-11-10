@@ -1,0 +1,9 @@
+{
+  "deviceId": "webos-test-001",
+  "channelName": "Test Channel",
+  "appVersion": "1.0.0",
+  "os": "webOS",
+  "build": "1",
+  "model": "LG55C8PUA",
+  "locale": "en-US"
+}

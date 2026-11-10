@@ -1,0 +1,44 @@
+{
+  "apiVersion": 2,
+  "configVersion": "e2e-analytics-legacy-profile",
+  "config": {
+    "channel": {
+      "name": "Test Church Channel",
+      "description": "Deterministic channel used by the browser suites.",
+      "language": "en",
+      "copyright": "Test fixture - not a real organisation."
+    },
+    "features": {
+      "layoutPreference": "leftnav",
+      "search": true,
+      "deepLinking": true,
+      "analytics": true,
+      "crashReporting": true,
+      "overhangLogo": true,
+      "overhangClock": true,
+      "overhangOptions": true
+    },
+    "content": {
+      "sourceUrl": "",
+      "maxRows": 20,
+      "maxItemsPerRow": 12,
+      "retryAttempts": 3,
+      "retryDelayMs": 20,
+      "fetchTimeout": 5
+    },
+    "analytics": {
+      "enabled": true,
+      "exportUrl": "",
+      "exportIntervalSeconds": 1,
+      "maxEventsPerBatch": 5,
+      "flushOnError": true
+    },
+    "server": {
+      "baseUrl": ""
+    },
+    "client": {
+      "refreshIntervalSeconds": 0,
+      "configFetchTimeoutSeconds": 2
+    }
+  }
+}

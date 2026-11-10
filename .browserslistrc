@@ -1,0 +1,12 @@
+# LG webOS TV (Chromium-based)
+# 2018 models: Chromium 53
+# 2019 models: Chromium 68
+# 2020+ models: Chromium 70+
+# Samsung Tizen TV (Chromium-based)
+# Tizen 3.0: Chromium 37
+# Tizen 4.0+: Chromium 40+
+# Vizio SmartCast (Chromium-based)
+# SmartCast OS 6+: Chromium 44+
+
+# Target: 2018+ webOS, Tizen 4.0+, SmartCast OS 6+
+Chromium >= 68

@@ -1,0 +1,272 @@
+{
+  "providerName": "Test Church Channel",
+  "lastUpdated": "2026-07-06T12:00:00.000Z",
+  "language": "en",
+  "cardStyle": {
+    "showTitle": true,
+    "showDescription": true,
+    "titleFont": "font:SmallBoldSystemFont",
+    "descriptionFont": "font:SmallSystemFont",
+    "titleColor": "0xFFFFFF",
+    "descriptionColor": "0xA0A0B0",
+    "titleNumLines": 1,
+    "descriptionNumLines": 1,
+    "showDetailTitle": true,
+    "showDetailDescription": true,
+    "detailTitleFont": "font:SmallBoldSystemFont",
+    "detailDescriptionFont": "font:SmallSystemFont",
+    "detailTitleColor": "0xFFFFFF",
+    "detailDescriptionColor": "0xA0A0B0",
+    "detailTitleNumLines": 1,
+    "detailDescriptionNumLines": 3
+  },
+  "config": {
+    "channel": {
+      "name": "Test Church Channel",
+      "description": "A test channel for CTV development",
+      "language": "en",
+      "copyright": "Copyright 2026"
+    },
+    "branding": {
+      "colors": {
+        "background": "0x1A1A2E",
+        "surface": "0x16213E",
+        "accent": "0xE8B931",
+        "textPrimary": "0xFFFFFF",
+        "textSecondary": "0xA0A0B0",
+        "focus": "0xE8B931",
+        "error": "0xFF4444"
+      },
+      "images": {
+        "overhangLogo": "",
+        "backgroundImage": "",
+        "iconFocus": ""
+      },
+      "fonts": {
+        "title": "font:BoldSystemFont",
+        "body": "font:MediumSystemFont",
+        "caption": "font:SmallSystemFont",
+        "heading": "font:ExtraBoldSystemFont"
+      },
+      "spacing": {
+        "marginHorizontal": 80,
+        "marginVertical": 40
+      },
+      "animation": {
+        "cardScale": 1.05,
+        "transitionDuration": 0.25
+      }
+    },
+    "cardStyle": {
+      "showTitle": true,
+      "showDescription": true,
+      "titleFont": "font:SmallBoldSystemFont",
+      "descriptionFont": "font:SmallSystemFont",
+      "titleColor": "0xFFFFFF",
+      "descriptionColor": "0xA0A0B0",
+      "titleNumLines": 1,
+      "descriptionNumLines": 1,
+      "showDetailTitle": true,
+      "showDetailDescription": true,
+      "detailTitleFont": "font:SmallBoldSystemFont",
+      "detailDescriptionFont": "font:SmallSystemFont",
+      "detailTitleColor": "0xFFFFFF",
+      "detailDescriptionColor": "0xA0A0B0",
+      "detailTitleNumLines": 1,
+      "detailDescriptionNumLines": 3
+    },
+    "features": {
+      "layoutPreference": "leftnav",
+      "search": true,
+      "deepLinking": true,
+      "analytics": true,
+      "crashReporting": true,
+      "overhangLogo": true,
+      "overhangClock": false,
+      "overhangOptions": false,
+      "continueWatching": true,
+      "liveService": true,
+      "serviceSchedule": true,
+      "watchLater": true
+    },
+    "ui": {
+      "backgroundColor": "0x1A1A2E",
+      "welcome": {
+        "enabled": true,
+        "title": "Loading...",
+        "subtitle": "Please wait"
+      },
+      "error": {
+        "title": "Connection Error",
+        "message": "Unable to load content. Please check your network connection.",
+        "retryLabel": "Retry"
+      },
+      "loading": {
+        "message": "Loading..."
+      }
+    },
+    "server": {
+      "baseUrl": "http://localhost:3000",
+      "timeout": 15
+    },
+    "content": {
+      "maxRows": 20,
+      "maxItemsPerRow": 12
+    },
+    "analytics": {
+      "enabled": true,
+      "exportUrl": "/api/analytics",
+      "exportIntervalSeconds": 300,
+      "maxEventsPerBatch": 50,
+      "flushOnError": true
+    },
+    "sermon": {
+      "scheduleUrl": "/api/schedule",
+      "liveStreamUrl": "/live",
+      "categories": [
+        { "id": "sermon", "name": "Sermons", "order": 1 },
+        { "id": "worship", "name": "Worship", "order": 2 },
+        { "id": "bible-study", "name": "Bible Study", "order": 3 }
+      ],
+      "pastors": [{ "id": "pastor-k", "name": "Pastor Ken" }],
+      "series": [{ "id": "series-1", "name": "Current Series" }]
+    },
+    "navItems": [
+      { "id": "home", "label": "Home", "icon": "home", "screen": "grid", "order": 1 },
+      { "id": "search", "label": "Search", "icon": "search", "screen": "search", "order": 2 },
+      {
+        "id": "schedule",
+        "label": "Schedule",
+        "icon": "schedule",
+        "screen": "schedule",
+        "order": 3
+      },
+      {
+        "id": "continue",
+        "label": "Continue",
+        "icon": "continue",
+        "screen": "continue-watching",
+        "order": 4
+      },
+      {
+        "id": "watch-later",
+        "label": "Watch Later",
+        "icon": "watchlater",
+        "screen": "watch-later",
+        "order": 5
+      },
+      {
+        "id": "settings",
+        "label": "Settings",
+        "icon": "settings",
+        "screen": "settings",
+        "order": 6
+      }
+    ],
+    "pageRegistry": {},
+    "offline": {
+      "maxDownloads": 10,
+      "preferredQuality": "720p",
+      "wifiOnly": false
+    },
+    "giving": {
+      "donationUrl": ""
+    },
+    "heartbeat": {
+      "intervalSeconds": 60,
+      "exportUrl": "/api/heartbeat"
+    }
+  },
+  "July 2026": [
+    {
+      "id": "video-test-sermon-one",
+      "title": "Test Sermon One",
+      "shortDescription": "A test sermon for development",
+      "thumbnail": "/output/thumbnails/test-sermon-one.jpg",
+      "hdPosterUrl": "/output/thumbnails/test-sermon-one.jpg",
+      "sdPosterUrl": "/output/thumbnails/test-sermon-one.jpg",
+      "url": "/stream/test-sermon-one.mp4",
+      "releaseDate": "2026-07-05",
+      "genres": ["Religious", "Sermon"],
+      "content": {
+        "duration": 3600,
+        "videos": [
+          {
+            "url": "/stream/test-sermon-one.mp4",
+            "quality": "FHD",
+            "videoType": "MP4"
+          }
+        ]
+      },
+      "dateAdded": "2026-07-05T10:00:00.000Z"
+    },
+    {
+      "id": "video-test-sermon-two",
+      "title": "Test Sermon Two",
+      "shortDescription": "Another test sermon for development",
+      "thumbnail": "/output/thumbnails/test-sermon-two.jpg",
+      "hdPosterUrl": "/output/thumbnails/test-sermon-two.jpg",
+      "sdPosterUrl": "/output/thumbnails/test-sermon-two.jpg",
+      "url": "/stream/test-sermon-two.mp4",
+      "releaseDate": "2026-07-04",
+      "genres": ["Religious", "Sermon"],
+      "content": {
+        "duration": 2700,
+        "videos": [
+          {
+            "url": "/stream/test-sermon-two.mp4",
+            "quality": "FHD",
+            "videoType": "MP4"
+          }
+        ]
+      },
+      "dateAdded": "2026-07-04T10:00:00.000Z"
+    },
+    {
+      "id": "video-test-worship",
+      "title": "Test Worship Session",
+      "shortDescription": "Test worship content",
+      "thumbnail": "/output/thumbnails/test-worship.jpg",
+      "hdPosterUrl": "/output/thumbnails/test-worship.jpg",
+      "sdPosterUrl": "/output/thumbnails/test-worship.jpg",
+      "url": "/stream/test-worship.mp4",
+      "releaseDate": "2026-07-03",
+      "genres": ["Worship"],
+      "content": {
+        "duration": 1800,
+        "videos": [
+          {
+            "url": "/stream/test-worship.mp4",
+            "quality": "FHD",
+            "videoType": "MP4"
+          }
+        ]
+      },
+      "dateAdded": "2026-07-03T10:00:00.000Z"
+    }
+  ],
+  "June 2026": [
+    {
+      "id": "video-test-june-sermon",
+      "title": "June Test Sermon",
+      "shortDescription": "A test sermon from last month",
+      "thumbnail": "/output/thumbnails/test-june-sermon.jpg",
+      "hdPosterUrl": "/output/thumbnails/test-june-sermon.jpg",
+      "sdPosterUrl": "/output/thumbnails/test-june-sermon.jpg",
+      "url": "/stream/test-june-sermon.mp4",
+      "releaseDate": "2026-06-28",
+      "genres": ["Religious", "Sermon"],
+      "content": {
+        "duration": 3000,
+        "videos": [
+          {
+            "url": "/stream/test-june-sermon.mp4",
+            "quality": "FHD",
+            "videoType": "MP4"
+          }
+        ]
+      },
+      "dateAdded": "2026-06-28T10:00:00.000Z"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "name": "Chroma Channel",
+  "version": "0.1.0",
+  "description": "Chroma CTV Channel — Vizio SmartCast",
+  "main": "index.html",
+  "start_url": "index.html",
+  "orientation": "landscape",
+  "display": "standalone",
+  "icons": {
+    "120": "assets/launcher-roku-120.png"
+  }
+}

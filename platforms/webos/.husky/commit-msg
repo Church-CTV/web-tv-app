@@ -1,0 +1,3 @@
+#!/bin/sh
+# .husky/commit-msg — Enforce Conventional Commits format
+exec npx --no-install commitlint --edit "$1"

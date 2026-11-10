@@ -1,0 +1,33 @@
+{
+  "reviewVersion": 1,
+  "note": "Contextual reviews, not scanner suppression or publication approval. Changed files invalidate their reviews.",
+  "entries": [
+    {
+      "path": "core/src/server-config/ServerConfig.test.ts",
+      "line": 79,
+      "rule": "infrastructure-address",
+      "fileSha256": "7f55ba0da4c3fefcc5b26b07874be652284a94767f12e831882328bdd37ccd80",
+      "classification": "reviewed-synthetic-or-documentation",
+      "reason": "Synthetic private-network URL verifying rejection of insecure non-loopback HTTP.",
+      "reviewer": "Codex main-session content review"
+    },
+    {
+      "path": "tests/precommit/test_checks.py",
+      "line": 27,
+      "rule": "credential-material",
+      "fileSha256": "608ccfcf86d8431de721ed57a4d67f4ffd02dc7fb0efbd48875884de296339cc",
+      "classification": "reviewed-synthetic-or-documentation",
+      "reason": "Fixed-alphabet fake credential string for a legacy detector test, not an issued credential.",
+      "reviewer": "Codex main-session content review"
+    },
+    {
+      "path": "tests/precommit/test_integration.py",
+      "line": 53,
+      "rule": "credential-material",
+      "fileSha256": "07ed5d23add8d76c487bdb524dbd27941e2d91484deb7031a1f8c60d4a420424",
+      "classification": "reviewed-synthetic-or-documentation",
+      "reason": "Fixed-alphabet fake credential string for a legacy detector test, not an issued credential.",
+      "reviewer": "Codex main-session content review"
+    }
+  ]
+}

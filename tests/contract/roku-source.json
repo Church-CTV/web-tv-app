@@ -1,0 +1,32 @@
+{
+  "revision": "528afc45e030520abd3f9ac6c4a3aed955595b83",
+  "reference": "/root/scratch/webos-roku-reference",
+  "grid": {
+    "source": "components/GridScreen/GridScreen.xml",
+    "translation": [150, 300],
+    "rowItemSize": [480, 270],
+    "rowItemSpacing": [30, 0],
+    "itemSize": [1650, 405],
+    "rowLabelOffset": [75, 30],
+    "focusXOffset": 75
+  },
+  "defaults": {
+    "source": "config/default.json",
+    "showTitle": false,
+    "showDescription": false,
+    "showDetailTitle": false,
+    "showDetailDescription": false
+  },
+  "notes": [
+    "GridScreen.brs does not override RowList translation or sizes.",
+    "Overhang.brs looks up logo while XML names logoPoster; do not claim Roku logo runtime renders from XML alone.",
+    "SettingsScreen.brs updates labels and QR values; SearchScreen.brs routes focus without overriding XML translations.",
+    "Web row label-to-poster line-box mapping is an adaptation; exact Roku RowList runtime layout requires device evidence."
+  ],
+  "assets": {
+    "home.png": "800e7a5d859019dff3ecaf105dc6106845d8b54f7be39c4bc153544ffef26ca4",
+    "search.png": "ea2750732d00002158ad0a9a1df371fe36c8edb37836f09776d97f27997170dd",
+    "settings.png": "e1375334204aaf02fe6b290bec838a6c92a5b837f857c5d56281d07da2f26253",
+    "hd_overhang_logo.png": "d9b3f8320986ea79fce1d29fe7f668ef2309bb5496897f732b24fe6ced0dd2f3"
+  }
+}

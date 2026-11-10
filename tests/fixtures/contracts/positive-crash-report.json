@@ -1,0 +1,16 @@
+{
+  "errors": [
+    {
+      "id": "err-1",
+      "name": "TypeError",
+      "message": "Cannot read property 'x' of undefined",
+      "stack": "TypeError: Cannot read property 'x' of undefined\n    at App.ts:100:5\n    at VideoScreen.ts:200:10",
+      "url": "app://webos/App.ts",
+      "line": 100,
+      "column": 5,
+      "timestamp": "2026-09-04T12:00:00Z"
+    }
+  ],
+  "total": 1,
+  "unreported": 1
+}

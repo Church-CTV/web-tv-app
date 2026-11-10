@@ -1,0 +1,162 @@
+/* Shared 1920x1080 Search surface. The platform viewport scales this canvas. */
+#screen-search .search-screen {
+  position: relative;
+  box-sizing: border-box;
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  background: var(--color-background);
+}
+
+#screen-search .search-screen__title {
+  position: absolute;
+  left: 130px;
+  top: 128px;
+  margin: 0;
+  color: var(--color-roku-heading);
+  font-size: 58px;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+#screen-search .search-layout,
+#screen-search .search-layout__keys {
+  position: static;
+}
+
+#screen-search .search-query,
+#screen-search .search-screen__input {
+  position: absolute;
+  box-sizing: border-box;
+  left: 130px;
+  top: 220px;
+  width: 650px;
+  height: 74px;
+  padding: 15px 22px;
+  border: 2px solid var(--color-control-border);
+  border-radius: 4px;
+  background: var(--color-surface);
+  color: var(--color-text-primary);
+  font-size: 30px;
+  line-height: 40px;
+}
+
+#screen-search .search-query:empty::before {
+  content: attr(data-placeholder);
+  color: var(--color-text-secondary);
+}
+
+#screen-search .search-screen__input::placeholder {
+  color: var(--color-text-secondary);
+  opacity: 1;
+}
+
+#screen-search .search-screen__input:focus {
+  outline: 3px solid var(--color-roku-heading);
+  outline-offset: 3px;
+}
+
+#screen-search .osk {
+  position: absolute;
+  box-sizing: border-box;
+  left: 130px;
+  top: 318px;
+  width: 650px;
+  padding: 16px;
+  border: 1px solid var(--color-panel-border);
+  border-radius: 6px;
+  background: var(--color-surface);
+}
+
+.osk-row {
+  display: flex;
+  width: 100%;
+  margin: 0 0 8px;
+}
+
+.osk-row:last-child {
+  margin-bottom: 0;
+}
+
+.osk-key {
+  flex: 1 1 0;
+  min-width: 0;
+  height: 64px;
+  margin: 0 8px 0 0;
+  padding: 0;
+  border: 1px solid var(--color-control-border);
+  border-radius: 4px;
+  background: var(--color-control);
+  color: var(--color-text-primary);
+  font-size: 25px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.osk-key:last-child {
+  margin-right: 0;
+}
+
+.osk-key--space {
+  flex: 2 1 0;
+}
+
+.osk-key:focus {
+  outline: 3px solid var(--color-roku-heading);
+  outline-offset: 2px;
+  border-color: var(--color-text-primary);
+  background: var(--color-text-primary);
+  color: var(--color-black);
+}
+
+#screen-search .search-screen__results {
+  position: absolute;
+  box-sizing: border-box;
+  left: 830px;
+  top: 220px;
+  width: 1048px;
+  height: 800px;
+  display: grid;
+  grid-template-columns: repeat(2, 480px);
+  gap: 40px 30px;
+  align-content: start;
+  padding: 14px;
+  overflow: auto;
+}
+
+#screen-search .search-screen__no-results {
+  grid-column: 1 / -1;
+  color: var(--color-text-secondary);
+  font-size: 28px;
+}
+#screen-search .content-card__title,
+#screen-search .content-card__info {
+  display: none;
+}
+.search-prompt {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 480px;
+  padding: 48px;
+  border: 1px solid var(--color-panel-border);
+  border-radius: 12px;
+  background: var(--color-surface);
+  color: var(--color-text-secondary);
+}
+.search-prompt svg {
+  margin-bottom: 28px;
+  color: var(--color-roku-heading);
+}
+.search-prompt h3 {
+  margin: 0 0 14px;
+  color: var(--color-text-primary);
+  font-size: 38px;
+  font-weight: 600;
+}
+.search-prompt p {
+  font-size: 26px;
+  line-height: 1.5;
+}

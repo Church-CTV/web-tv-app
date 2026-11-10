@@ -1,0 +1,151 @@
+/* Layout styles for CTV app */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#app {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+
+.screen-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.screen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity var(--transition-base);
+}
+
+.screen-active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  /* The active screen must paint above every inactive screen. Without an
+     explicit z-index, stacking falls back to DOM order, so a .video-screen
+     element appended later to #screen-container paints over #screen-content-
+     detail and its focus ring (and any other screen) even while inactive.
+     This is what made the focus ring appear missing/clipped on screen
+     switches. Inactive screens keep the default z-index (auto/0). */
+  z-index: 1;
+}
+
+/* Overhang */
+.overhang {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%, transparent 100%);
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-md);
+  z-index: 100;
+}
+
+.overhang__title {
+  flex: 1;
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+}
+
+.overhang__logo {
+  height: 40px;
+  margin-right: var(--spacing-md);
+}
+
+.overhang__actions {
+  display: flex;
+  gap: var(--spacing-sm);
+}
+
+/* Roku parity: live HH:MM clock pinned to the right of the overhang. */
+.overhang__clock {
+  margin-left: var(--spacing-lg);
+  font-size: var(--font-size-lg);
+  font-weight: 500;
+  color: var(--color-text-primary);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.overhang__btn {
+  background: transparent;
+  border: 2px solid transparent;
+  color: var(--color-text-primary);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.overhang__btn:hover,
+.overhang__btn:focus {
+  border-color: var(--color-focus);
+  outline: none;
+}
+
+/* Loading */
+.loading-message {
+  text-align: center;
+  margin-top: 50vh;
+  font-size: var(--font-size-xl);
+}
+
+/* Reduced motion (WCAG 2.3.3) — honor prefers-reduced-motion.
+   Applied via a universal selector so it covers both shared and
+   platform-specific transitions and animations. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* The persistent media element must fill the TV canvas on Tizen and Vizio. */
+#screen-video > video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: var(--color-black);
+}
+
+.ctv-no-flex-gap .content-category__row > .content-card + .content-card,
+.ctv-no-flex-gap .content-grid__row-videos > .content-card + .content-card {
+  margin-left: 30px;
+}
+
+/* MainScene appends content after the overhang. Keep its background below
+   content, with branding above the rail and source-positioned Search title. */
+.overhang > * {
+  position: relative;
+  z-index: 102;
+}

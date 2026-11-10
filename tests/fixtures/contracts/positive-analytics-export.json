@@ -1,0 +1,41 @@
+{
+  "appVersion": "1.0.0",
+  "sessionStartTime": "12:00:00",
+  "activeScreen": "Home",
+  "eventCount": 3,
+  "summary": {
+    "screenViews": 1,
+    "plays": 1,
+    "deepLinks": 1,
+    "errors": 0
+  },
+  "events": {
+    "screenViews": [
+      {
+        "eventType": "screen_view",
+        "timestamp": "2026-09-04T12:01:00Z",
+        "screenName": "Home",
+        "previousScreen": null
+      }
+    ],
+    "plays": [
+      {
+        "eventType": "content_play",
+        "timestamp": "2026-09-04T12:02:00Z",
+        "contentId": "video-test-1",
+        "contentTitle": "Test Video 1",
+        "contentDuration": 1200,
+        "sourceScreen": "Home"
+      }
+    ],
+    "deepLinks": [
+      {
+        "eventType": "deep_link",
+        "timestamp": "2026-09-04T12:00:30Z",
+        "contentId": "video-test-1",
+        "mediaType": "video",
+        "source": "input_launch"
+      }
+    ]
+  }
+}

@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chroma Channel</title>
+    <!-- Vendored LG webOSTV.js SDK (v1.2.13, pinned copy). Loaded locally to avoid
+       untrusted CDN mutation and to satisfy the C7 production gate. -->
+    <script
+      src="vendor/webOSTV.js"
+      integrity="sha512-7U3tUJI8zXXdEkz6AqkalJdISI93AsE8R+sAdjN3UwoLCm67JIM2qzNol1v6MhMVN8iRdFs00RXWQkAUQgDj9A=="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div id="app">
+      <header id="overhang" class="overhang">
+        <img class="overhang-logo" src="/overhang-logo.webp" alt="" aria-hidden="true" />
+        <div class="overhang-title">Chroma Channel</div>
+        <div id="overhang-clock" class="overhang__clock" aria-hidden="true"></div>
+      </header>
+      <!-- Persistent left nav (Roku parity): Home/Search/Settings are content
+           swapped into the screen-container beside this bar, so it stays
+           visible on every screen instead of vanishing with the home grid. -->
+      <div id="left-nav"></div>
+      <main id="screen-container" class="screen-container">
+        <div id="screen-loading" class="screen screen-active">
+          <p class="loading-message">Loading...</p>
+        </div>
+        <div id="screen-grid" class="screen">
+          <div class="grid-header">
+            <div id="grid-header-title" class="grid-header__title"></div>
+            <div id="grid-header-desc" class="grid-header__desc"></div>
+          </div>
+          <div id="content-grid" class="grid-viewport"></div>
+        </div>
+        <div id="screen-video" class="screen">
+          <video id="video-player" class="video-player" autoplay></video>
+          <div id="video-overlay" class="video-overlay"></div>
+        </div>
+        <div id="screen-search" class="screen">
+          <div class="search-header">
+            <input id="search-input" class="search-input" type="text" placeholder="Search..." />
+          </div>
+          <div id="search-results" class="content-grid"></div>
+        </div>
+        <div id="screen-settings" class="screen">
+          <h2 class="screen-title">Settings</h2>
+          <div id="settings-list" class="settings-list"></div>
+        </div>
+        <div id="screen-content-detail" class="screen">
+          <div id="content-detail" class="content-detail"></div>
+        </div>
+        <div id="screen-error" class="screen">
+          <div class="error-container">
+            <h2 class="error-title">Connection Error</h2>
+            <p class="error-message">
+              Unable to load content. Please check your network connection.
+            </p>
+            <button id="error-retry" class="button-primary">Retry</button>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script type="module" src="src/App.ts"></script>
+  </body>
+</html>

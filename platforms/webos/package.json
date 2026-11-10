@@ -1,0 +1,29 @@
+{
+  "name": "@ctv/webos",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "vite build",
+    "preview": "vite preview --port 4173",
+    "dev": "vite --port 3001",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "e2e": "playwright test"
+  },
+  "dependencies": {
+    "@ctv/core": "file:../../core",
+    "@ctv/shared-contracts": "file:../../shared/contracts",
+    "@ctv/shared-ui": "file:../../shared/ui"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^21.2.2",
+    "@commitlint/config-conventional": "^21.2.3",
+    "@playwright/test": "^1.63.0",
+    "axe-core": "^4.13.0",
+    "jsdom": "^29.1.1",
+    "typescript": "^5.9.3",
+    "vite": "^7.3.0",
+    "vitest": "^5.1.0"
+  }
+}

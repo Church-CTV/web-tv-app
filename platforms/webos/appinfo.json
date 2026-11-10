@@ -1,0 +1,18 @@
+{
+  "appDescription": "Chroma CTV Channel — LG webOS",
+  "icon": "assets/launcher-roku-80.png",
+  "main": "index.html",
+  "bgImage": "assets/splash.png",
+  "title": "Chroma Channel",
+  "type": "web",
+  "version": "0.1.0",
+  "splashBackground": "assets/splash.png",
+  "bgColor": "#000000",
+  "vendor": "Chroma",
+  "largeIcon": "assets/launcher-roku-130.png",
+  "iconColor": "#000000",
+  "id": "com.chroma.channel.webos",
+  "requiredACG": [],
+  "disableBackHistoryAPI": true,
+  "splashMinTime": 1000
+}

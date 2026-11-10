@@ -1,0 +1,155 @@
+.content-card {
+  position: relative;
+  cursor: pointer;
+}
+
+/* Roku product components: home posters, search, settings, video and recovery.
+ * Curated from components.css; optional product screens are not shipped. */
+
+.content-card__poster {
+  position: absolute;
+  inset: 0;
+  background-color: var(--color-surface);
+}
+
+.content-card__poster-fallback {
+  position: absolute;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-surface);
+  color: var(--color-text-secondary);
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.content-card__poster-fallback::before {
+  content: '▶';
+  opacity: 0.35;
+}
+.content-card__poster--error .content-card__poster-fallback {
+  display: flex;
+}
+
+.content-card__poster-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.search-screen__input {
+  width: 100%;
+  padding: var(--spacing-md);
+  font-size: var(--font-size-lg);
+  background: var(--color-surface);
+  border: 2px solid transparent;
+  border-radius: var(--radius-md);
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-lg);
+}
+
+.search-screen__input:focus {
+  border-color: var(--color-focus);
+  outline: none;
+}
+
+.search-screen__no-results {
+  text-align: center;
+  padding: var(--spacing-2xl);
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-lg);
+}
+.error-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+  padding: var(--spacing-xl);
+}
+
+.error-screen__icon {
+  font-size: 4rem;
+  margin-bottom: var(--spacing-lg);
+}
+.error-screen__icon svg {
+  display: block;
+  width: 4rem;
+  height: 4rem;
+}
+
+.error-screen__title {
+  font-size: var(--font-size-2xl);
+  font-weight: 600;
+  margin-bottom: var(--spacing-md);
+}
+
+.error-screen__message {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-xl);
+  max-width: 600px;
+}
+
+.error-screen__btn {
+  padding: var(--spacing-md) var(--spacing-xl);
+  background: var(--color-accent);
+  color: var(--color-text-primary);
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.error-screen__btn:hover {
+  background: var(--color-accent-hover);
+  transform: translateY(-2px);
+}
+
+.error-screen__details {
+  background: var(--color-surface);
+  padding: var(--spacing-md);
+  border-radius: var(--radius-md);
+  font-family: monospace;
+  font-size: var(--font-size-sm);
+  margin-bottom: var(--spacing-xl);
+  max-width: 600px;
+  text-align: left;
+}
+.home-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  text-align: center;
+  padding: var(--spacing-2xl);
+}
+
+.home-empty-state__title {
+  font-size: var(--font-size-2xl);
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-md);
+}
+
+.home-empty-state__hint {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-secondary);
+  max-width: 500px;
+}
+
+/* Nav dimensions and focus are owned by the platform skin. */
+.left-nav__item {
+  color: var(--color-text-primary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}

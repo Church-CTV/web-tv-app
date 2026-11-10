@@ -1,0 +1,42 @@
+{
+  "name": "ctv-multi-platform",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Multi-platform CTV app \u2014 webOS, Tizen, Vizio replicating Roku channel template",
+  "workspaces": [
+    "core",
+    "platforms/*",
+    "shared/contracts",
+    "shared/ui"
+  ],
+  "scripts": {
+    "build": "npm run build:webos && npm run build:tizen && npm run build:vizio",
+    "build:webos": "npm run build -w @ctv/webos",
+    "build:tizen": "npm run build -w @ctv/tizen",
+    "build:vizio": "npm run build -w @ctv/vizio",
+    "test": "vitest run --maxWorkers=2",
+    "test:focused": "vitest run tests/contract/public-safe-defaults.test.ts tests/contract/client-config-resolution.test.ts tests/contract/client-config-takes-effect.test.ts tests/contract/analytics-v2-envelope.test.ts core/src/feed/FeedParser.test.ts platforms/webos/tests/unit/StartupRecovery.test.ts platforms/tizen/tests/unit/StartupRecovery.test.ts platforms/vizio/tests/unit/StartupRecovery.test.ts platforms/webos/tests/unit/App.channel-profile.test.ts --maxWorkers=2",
+    "lint:check": "eslint . --ext .ts,.tsx"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.2",
+    "@typescript-eslint/eslint-plugin": "^8.69.0",
+    "@typescript-eslint/parser": "^8.69.0",
+    "@vitest/coverage-v8": "^5.1.0",
+    "eslint": "^8.56.0",
+    "husky": "^9.1.7",
+    "prettier": "^3.9.8",
+    "terser": "^5.51.2",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.70.0",
+    "vitest": "^5.1.0"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "overrides": {
+    "@typescript-eslint/typescript-estree": {
+      "minimatch": "^11.0.1"
+    }
+  }
+}

@@ -1,0 +1,124 @@
+/* Shared Settings surface on the 1920 × 1080 TV canvas. */
+#screen-settings .settings-screen {
+  box-sizing: border-box;
+  width: 1920px;
+  height: 1080px;
+  max-width: none;
+  margin: 0;
+  padding: 142px 120px 100px 230px;
+  color: var(--color-text-primary);
+  background: var(--color-background);
+}
+
+#screen-settings .settings-screen__title {
+  margin: 0 0 40px;
+  color: var(--color-text-primary);
+  font-size: 58px;
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+#screen-settings .settings-channel-card,
+#screen-settings .settings-give {
+  box-sizing: border-box;
+  width: 1450px;
+  border: 1px solid var(--color-panel-border);
+  border-radius: 20px;
+  background: var(--color-surface);
+}
+
+#screen-settings .settings-channel-card {
+  padding: 32px 40px;
+  margin-bottom: 28px;
+}
+
+#screen-settings .settings-channel__heading,
+#screen-settings .settings-give .settings-section__title {
+  margin: 0 0 18px;
+  color: var(--color-text-primary);
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+#screen-settings .settings-channel {
+  color: var(--color-text-secondary);
+  font-size: 26px;
+  line-height: 1.5;
+}
+
+#screen-settings .settings-channel p {
+  margin: 0;
+}
+
+#screen-settings .settings-channel p + p {
+  margin-top: 4px;
+  color: var(--color-text-secondary);
+}
+
+#screen-settings .settings-give {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 370px;
+  margin: 0;
+  padding: 36px 48px 36px 40px;
+}
+
+#screen-settings .settings-give__content {
+  max-width: 900px;
+}
+
+#screen-settings .settings-give__help {
+  max-width: 800px;
+  margin: 0 0 24px;
+  color: var(--color-text-secondary);
+  font-size: 26px;
+  line-height: 1.5;
+}
+
+#screen-settings .settings-give__link {
+  display: inline-block;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 14px 18px;
+  border: 2px solid var(--color-control-border);
+  border-radius: 10px;
+  color: var(--color-text-primary);
+  background: var(--color-control);
+  font-size: 24px;
+  line-height: 1.3;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+#screen-settings .settings-give__link:focus {
+  outline: 4px solid var(--color-text-primary);
+  outline-offset: 5px;
+  background: var(--color-surface-hover);
+}
+
+#screen-settings .settings-give__qr-wrap {
+  flex: 0 0 auto;
+  padding: 20px;
+  border-radius: 12px;
+  background: var(--color-text-primary);
+}
+
+#screen-settings .settings-give__qr {
+  display: block;
+  width: 250px;
+  height: 250px;
+  margin: 0;
+  padding: 0;
+}
+#screen-settings .settings-channel p:first-child {
+  color: var(--color-text-primary);
+  font-size: 34px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+#screen-settings .settings-channel p + p {
+  margin-top: 12px;
+  font-size: 22px;
+}

@@ -1,0 +1,11 @@
+{
+  "webos": {
+    "domContentLoadedMs": 2000,
+    "loadEventEndMs": 3000,
+    "firstContentVisibleMs": 3000,
+    "longTaskThresholdMs": 300,
+    "screenTransitionMs": 150,
+    "keyToPaintMs": 150,
+    "scriptExecMs": 300
+  }
+}

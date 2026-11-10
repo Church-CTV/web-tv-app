@@ -1,0 +1,27 @@
+{
+  "name": "@ctv/shared-ui",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "./index.ts",
+  "types": "./index.ts",
+  "exports": {
+    ".": "./index.ts",
+    "./ContentCard": "./ContentCard.ts",
+    "./ContentGrid": "./ContentGrid.ts",
+    "./ContentDetail": "./ContentDetail.ts",
+    "./ContinueWatchingScreen": "./ContinueWatchingScreen.ts",
+    "./ContinueWatchingVideoScreen": "./ContinueWatchingVideoScreen.ts",
+    "./DeepLinking": "./DeepLinking.ts",
+    "./LeftNav": "./LeftNav.ts",
+    "./Navigation": "./Navigation.ts",
+    "./Overhang": "./Overhang.ts",
+    "./ScheduleScreen": "./ScheduleScreen.ts",
+    "./ScreenShell": "./ScreenShell.ts",
+    "./SearchScreen": "./SearchScreen.ts",
+    "./SettingsScreen": "./SettingsScreen.ts",
+    "./VideoScreen": "./VideoScreen.ts",
+    "./VideoErrorRenderer": "./VideoErrorRenderer.ts",
+    "./WatchLaterScreen": "./WatchLaterScreen.ts"
+  }
+}

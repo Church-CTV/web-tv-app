@@ -1,0 +1,623 @@
+/*
+ * Tizen skin — exact Roku channel-template HD (1920x1080) tokens.
+ * Source: roku-channel-template GridScreen.xml / LeftNavScreen.xml / ContentCard.xml / Overhang.xml
+ *
+ * Roku-parity port of the measured visuals from platforms/webos/src/styles.css
+ * (the verified parity build), re-expressed against the tizen DOM (which uses
+ * .main-grid / .content-category rather than webos's .grid-viewport /
+ * .content-grid__row-videos). All dimension overrides live below the shared
+ * @imports so they override shared/styles without mutating it.
+ */
+
+@import url('../../../shared/styles/tokens.css');
+@import url('../../../shared/styles/layout.css');
+@import url('../../../shared/styles/components.css');
+@import url('../../../shared/styles/error-dialog.css');
+@import url('../../../shared/styles/confirm-dialog.css');
+@import url('../../../shared/styles/home-premium.css');
+@import url('../../../shared/styles/search-premium.css');
+@import url('../../../shared/styles/settings-premium.css');
+
+:root {
+  /* --color-background and --color-surface come from shared/styles/tokens.css
+     (Roku-parity palette, verified on webOS); a local --color-surface: #000
+     override here was legacy pre-port styling that made poster fallback tiles
+     and every surface consumer render black instead of the reference navy. */
+  --roku-rail: 80px;
+  /* Roku measured card size (FHD reference render): 440x248, flex-none. */
+  --roku-card-w: 480px;
+  --roku-card-h: 270px;
+  --roku-row-h: 405px;
+  --roku-gap: 30px;
+  --roku-gold: #e8b931;
+  --roku-muted: #a0a0b0;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  /* body background (var(--color-background)) and font stack
+     (var(--font-family)) come from shared/styles/layout.css, matching the
+     webOS reference per-platform: each device resolves its own system font.
+     The legacy background:#000 + Helvetica stack here overrode both. */
+}
+
+#stage {
+  width: 1920px;
+  height: 1080px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform-origin: center center;
+  background: #1a1a2e;
+  overflow: hidden;
+}
+
+/* #app must never be a scroll container. The grid scrolls inside .main-grid;
+   overflow:clip (in addition to hidden) creates NO scroll box, so
+   scrollIntoView can never shift the whole app (webos styles.css L255-258).
+   Older engines without clip keep the hidden fallback. */
+#app {
+  width: 1920px;
+  height: 1080px;
+  position: relative;
+  overflow: hidden;
+  overflow: clip;
+  background: #1a1a2e;
+}
+
+/* Roku ChannelOverhang: solid navy bar, 100px, logo + channel name on the
+   left, live clock on the far right (webos styles.css L94-101). Solid
+   background (no gradient) matches the reference 1:1. */
+.overhang {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  padding: 0 69px 0 150px;
+  background: #1a1a2e;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+}
+
+.overhang-logo,
+.overhang__logo {
+  height: 60px;
+  width: auto;
+  max-width: 240px;
+  margin-right: 30px;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.overhang-logo img,
+.overhang__logo {
+  height: 60px;
+  width: auto;
+  max-width: 240px;
+  display: block;
+  object-fit: contain;
+}
+
+.overhang-title,
+.overhang__title {
+  flex: 1;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #fff;
+}
+
+/* Live HH:MM overhang clock, pinned to the right of the bar (webos
+   styles.css L120-127). The brief's class `overhang-clock` is superseded by
+   webos's actual class `overhang__clock`; both selectors are styled so the
+   P1 index.html element (overhang__clock) and the legacy HomeScreen element
+   (overhang-clock) both render correctly. */
+.overhang__clock,
+.overhang-clock {
+  margin-left: auto;
+  font-size: 26px;
+  font-weight: 600;
+  color: #fff;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* LeftNavScreen.xml: 80px black icon rail, full height. Roku clusters its
+   three icons around the vertical middle; icon-only (labels clipped).
+   Ported from webos styles.css L270-330 (80px bar, 40x40 icons, centered,
+   z-index 101). */
+.left-nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 80px;
+  height: 100%;
+  background: #000;
+  padding: 0;
+  display: flex;
+  overflow: visible;
+  z-index: 101;
+}
+
+#app.video-playing .left-nav,
+#app.video-playing .overhang {
+  display: none !important;
+}
+
+/* Center the icon column vertically (Roku/webos: icons cluster at the middle
+   of the rail). */
+.left-nav-inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  gap: 0;
+}
+
+/* Each nav item is exactly 80x80 so the three icon centers land 80px apart
+   (webos styles.css L298-308). Icon-only: no visible label. */
+.left-nav__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  background-image: none;
+}
+
+.left-nav__item:hover,
+.left-nav__item:focus {
+  background: rgba(255, 255, 255, 0.14);
+  outline: 2px solid #fff;
+  outline-offset: 0;
+}
+
+.left-nav__item--active:not(:focus) {
+  background: transparent;
+  outline: none;
+}
+
+/* Labels are visually hidden (icon-only nav); kept for accessibility. */
+.left-nav__label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+/* 40x40 icon (webos styles.css L317-321), rendered from the tizen's existing
+   self-contained SVG masks (kept rather than webos's PNG background-images,
+   since the tizen tracked assets differ and the masks already render the
+   icon-only set). */
+.left-nav__icon {
+  margin: 0;
+  width: 40px;
+  height: 40px;
+  background: #fff !important;
+  background-image: none !important;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+}
+
+.left-nav__icon--home {
+  -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='white' d='M12 3.2 3 11h2.2V21h6.1v-6.2h1.4V21h6.1V11H21z'/></svg>");
+  mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='white' d='M12 3.2 3 11h2.2V21h6.1v-6.2h1.4V21h6.1V11H21z'/></svg>");
+}
+.left-nav__icon--search {
+  -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2'><circle cx='11' cy='11' r='6.5'/><path d='M20 20l-3.6-3.6'/></svg>");
+  mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2'><circle cx='11' cy='11' r='6.5'/><path d='M20 20l-3.6-3.6'/></svg>");
+}
+.left-nav__icon--settings {
+  -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'><path d='M19.4 13a7.7 7.7 0 0 0 .1-1 7.7 7.7 0 0 0-.1-1l2-1.5-2-3.5-2.4 1a7 7 0 0 0-1.7-1L15 2h-6l-.3 2.5A7 7 0 0 0 7 5.5l-2.4-1-2 3.5 2 1.5a7.7 7.7 0 0 0-.1 1 7.7 7.7 0 0 0 .1 1l-2 1.5 2 3.5 2.4-1a7 7 0 0 0 1.7 1L9 22h6l.3-2.5a7 7 0 0 0 1.7-1l2.4 1 2-3.5zM12 15.5A3.5 3.5 0 1 1 12 8.5a3.5 3.5 0 0 1 0 7z'/></svg>");
+  mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'><path d='M19.4 13a7.7 7.7 0 0 0 .1-1 7.7 7.7 0 0 0-.1-1l2-1.5-2-3.5-2.4 1a7 7 0 0 0-1.7-1L15 2h-6l-.3 2.5A7 7 0 0 0 7 5.5l-2.4-1-2 3.5 2 1.5a7.7 7.7 0 0 0-.1 1 7.7 7.7 0 0 0 .1 1l-2 1.5 2 3.5 2.4-1a7 7 0 0 0 1.7-1L9 22h6l.3-2.5a7 7 0 0 0 1.7-1l2.4 1 2-3.5zM12 15.5A3.5 3.5 0 1 1 12 8.5a3.5 3.5 0 0 1 0 7z'/></svg>");
+}
+
+/* #content-grid is the full-screen, NON-scrolling container. It is the
+   positioning context for the fixed .focus-meta header (top:113) and holds
+   the scrolling .main-grid. It must stay overflow:visible so the absolutely
+   positioned focus header never scrolls with the grid. */
+#screen-grid .content-grid {
+  position: absolute;
+  inset: 0;
+  margin-left: 0;
+  padding: 0;
+  overflow: visible;
+}
+
+/* Focused-item header band between the overhang and the grid. Tracks the
+   focused card's title/description. Ported from webos .grid-header
+   (styles.css L132-146): fixed band at top:113, height:176 clamped with
+   overflow:hidden so a long title/description can never grow into the top
+   card row. left:210 aligns it with the grid content. */
+
+/* webos .grid-header__title (L148-155): bold 40px, clamped to 2.3em. */
+
+/* webos .grid-header__desc (L157-165): 22px secondary, 1.5 line-height,
+   clamped to 4.2em. */
+
+/* The grid scroll viewport. .main-grid (not #content-grid) is the scroller so
+   the focus header (a sibling inside the non-scrolling #content-grid) stays
+   fixed at top:113 while the grid scrolls. top:300 clears the overhang (100)
+   + focus header (ends 289). padding-top:108 puts the first month label at
+   y=408; left:80 (clears the 80px nav) + padding-left:130 puts the content
+   left edge at x=210 (the measured first-card left). Vertical scroll only;
+   horizontal scroll lives on each row (see .content-category__row). */
+.main-grid {
+  position: absolute;
+  left: 80px;
+  top: 300px;
+  right: 0;
+  bottom: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 108px 0 40px 130px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.main-grid::-webkit-scrollbar {
+  display: none;
+}
+
+/* Each month category stacks in normal flow inside the viewport. 65px
+   inter-month spacing (webos styles.css L213-215). */
+.content-category {
+  height: auto;
+  min-height: 0;
+  margin: 0 0 65px;
+  padding: 0;
+  overflow: visible;
+}
+
+/* Month row label. webos styles.css L222-229: gray ~30px, line-height pinned
+   to 30px so the label line-box is renderer-independent (30 + 58 = 88px
+   label->card gap), placing the label top at y=408 and the first card row at
+   y=496 on every engine. */
+.content-category__title {
+  font-size: 30px;
+  line-height: 30px;
+  font-weight: 500;
+  margin: 0 0 58px;
+  padding: 0;
+  color: #a0a0b0;
+  position: relative;
+  z-index: 0;
+}
+
+/* Card row: horizontal scroller (Roku RowList scrolls per row). 60px gap
+   (webos styles.css L208-211). The row needs real padding, not just an inset ring:
+   scale(1.05) grows a 440x248 card by 11px across and 6.2px tall, and overflow-x:auto
+   clips vertically too, so the scaled top/bottom edge (and the first/last card's outer
+   edge) was cropped. With box-sizing:border-box (shared/styles/layout.css L4) the 14px
+   padding stays inside the box, the equal negative top/bottom margins cancel in flow so
+   the first card top stays at y=496, and margin-left -14px cancels the left shift so the
+   card keeps the measured x=210 under its month label. */
+.content-category__row {
+  display: flex;
+  gap: 30px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 14px;
+  margin: -14px 0 -14px -14px;
+  height: auto;
+  min-height: 0;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.content-category__row::-webkit-scrollbar {
+  display: none;
+}
+
+/* Roku measured FHD card: 440x248, flex-none (never shrinks — the parity
+   gate that kept the 16:9 poster crop intact; webos styles.css L241-243,
+   L411-414). */
+.content-card {
+  width: 480px;
+  height: 270px;
+  flex: none;
+  border-radius: 8px;
+  margin-right: 0;
+  overflow: hidden;
+  box-shadow: none;
+  background: #000;
+  transition: transform 150ms ease;
+}
+
+/* scrollIntoView({ block: 'nearest' }) settles the focused card's top 196px
+   below the scroll-viewport top. .main-grid's viewport top is at y=300, so
+   the focus line lands at y=496 — exactly where the first card row already
+   sits (300 + 108 viewport pad + 30 label + 58 gap). Scoped to the home grid
+   only (webos styles.css L244-246); search keeps its own layout. */
+#screen-grid .content-card {
+  scroll-margin-top: 196px;
+}
+
+/* Focus: white ring, Roku parity. The ring is drawn on the POSTER layer, not on the
+   card: .content-card__poster-img is position:absolute / inset:0 (shared
+   styles/components.css L79-84) and paints over any outline drawn on the card, so the
+   previous card-level outline was a ring that computed but never painted (the same defect
+   measured on webOS: 0 of 4 edges painted before, 4 of 4 after). outline:none here also
+   suppresses the shared red ring (shared/styles/components.css L17-22), which reappears
+   the moment the card-level white outline is simply removed. */
+.content-card:hover,
+.content-card:focus,
+.content-card:focus-visible,
+.content-card--live:focus {
+  transform: none;
+  transform-origin: center center;
+  outline: none;
+  box-shadow: none;
+  z-index: 2;
+}
+
+.content-card:hover .content-card__poster-img,
+.content-card:hover .content-card__poster-fallback,
+.content-card:focus .content-card__poster-img,
+.content-card:focus .content-card__poster-fallback,
+.content-card:focus-visible .content-card__poster-img,
+.content-card:focus-visible .content-card__poster-fallback,
+.content-card--live:focus .content-card__poster-img,
+.content-card--live:focus .content-card__poster-fallback {
+  outline: 3px solid #fff;
+  outline-offset: -3px;
+}
+
+/* Poster rounded-mask clipping on the focused thumbnail: clip the poster to
+   its own border-radius (inherited from the 8px card) so the scaled
+   thumbnail can never spill past the rounded corners. webos
+   styles.css L66-69 (mapped to the tizen __poster container). */
+.content-card__poster {
+  border-radius: inherit;
+  overflow: hidden;
+}
+
+.content-card__live {
+  display: none;
+}
+
+/* Image-only cards (Roku cardStyle showTitle:false): no title/description
+   band on the card; the focused-item header (.focus-meta) carries it.
+   Applies to home AND search. webos styles.css L265-268. */
+.content-card__info,
+.content-card__title,
+.content-card__description,
+.content-card__duration {
+  display: none;
+}
+
+.content-card__live {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 3;
+  background: #e10600;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+  padding: 4px 10px;
+  border-radius: 2px;
+  text-transform: none;
+}
+
+#screen-schedule,
+#screen-continue-watching,
+#screen-watch-later,
+#screen-subscribe,
+#screen-error,
+#screen-loading {
+  margin-left: 80px;
+  padding: 100px 40px 40px 70px;
+  overflow: auto;
+}
+
+/* Search results: same 440x248 image-only cards as the home grid (Roku
+   SearchResults reuses ContentCard). */
+
+/* Give section rules ported verbatim from platforms/webos/src/styles.css
+   (L822-849) for DOM parity: focusable link + centered local-QR wrap. */
+
+.screen-title {
+  margin-bottom: 20px;
+}
+
+/* === Universal focus fallback (mirrors the intent of platforms/webos/src/styles.css:618) ===
+   Tizen's webview shares webOS's behaviour: `:focus-visible` is not reliably applied to
+   remote-driven or programmatic focus (F101), so this fallback deliberately declares
+   `:focus` alone - that is the pseudo-class a remote actually fires, and it needs no
+   `:focus-visible` partner to be honest. Before this rule Tizen had no fallback at all,
+   so any focusable nobody styled showed no indicator and no gate detected the gap.
+
+   Measured, not assumed - an earlier draft was `*:focus, *:focus-visible` with
+   `outline-offset: 2px`, and it repainted two shipped screens:
+   - video-player: `document.activeElement` is the `<video>` itself after a card click, so
+     a media element started wearing a control ring. Media is content, not a control, so it
+     is excluded here.
+   - settings: the focused `.settings-option` already paints its own ring via
+     `.settings-option:focus` (higher specificity), but it does not declare
+     `outline-offset`, so the fallback leaked a 2px offset into it and moved its ring.
+     `:where()` gives the whole rule zero specificity and the offset is gone, so a
+     component's own ring stays exactly where the component put it.
+   Vizio is not mirrored yet: it has no platform focus styling and its focus model is
+   unresolved under F130, so a lone ring there would be a half-fix. */
+:where(*:not(video):not(img):not(picture):not(canvas):not(svg):focus) {
+  outline: 3px solid var(--color-focus);
+}
+
+/* F132 — stall feedback. The shared VideoErrorRenderer adds this row to
+   #screen-video while the media element reports `waiting`/`stalled` (the same
+   acknowledgement webOS shows from its own video screen). #screen-video is a
+   positioned .screen (shared/styles/layout.css L30-39), so this anchors to the
+   player's own container instead of the page. Without a rule here the row
+   exists in the DOM but paints nothing on a real set. */
+.video-buffering {
+  position: absolute;
+  left: 50%;
+  bottom: 120px;
+  transform: translateX(-50%);
+  z-index: 11;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-md);
+  background: rgba(0, 0, 0, 0.7);
+  color: var(--color-text-primary);
+  font-size: var(--font-size-sm);
+}
+
+/* Authority: Roku 528afc45e030520abd3f9ac6c4a3aed955595b83.
+   GridScreen: RowList [150,300], itemSize [1650,405], label offset [75,30],
+   focusXOffset 75, poster 480x270, item spacing 30. Config hides detail text. */
+#app {
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  overflow: clip;
+}
+.overhang {
+  padding: 0;
+  height: 100px;
+}
+.overhang-logo,
+.overhang__logo {
+  position: absolute;
+  left: 50px;
+  top: 0;
+  width: 240px;
+  height: 138px;
+  object-fit: contain;
+  margin: 0;
+}
+.overhang-title,
+.overhang__title {
+  position: absolute;
+  left: 320px;
+  right: 300px;
+  top: 42px;
+  font-size: 26px;
+  margin: 0;
+}
+.overhang__clock,
+.overhang-clock {
+  position: absolute;
+  left: auto;
+  right: 72px;
+  top: 38px;
+  width: 180px;
+  height: 40px;
+  text-align: right;
+}
+.left-nav {
+  width: 80px;
+  height: 1080px;
+  top: 0;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-top: 438px;
+}
+.left-nav-inner {
+  height: auto;
+  justify-content: flex-start;
+}
+.left-nav__item {
+  width: 60px;
+  height: 50px;
+  min-height: 50px;
+  margin-left: 10px;
+  flex-shrink: 0;
+}
+.left-nav__icon {
+  width: 40px;
+  height: 40px;
+  background-color: transparent !important;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  mask-image: none;
+  -webkit-mask-image: none;
+}
+.left-nav__icon--home {
+  background-image: url('/nav-home.png') !important;
+}
+.left-nav__icon--search {
+  background-image: url('/nav-search.png') !important;
+}
+.left-nav__icon--settings {
+  background-image: url('/nav-settings.png') !important;
+}
+#screen-grid .grid-viewport {
+  margin-left: 150px;
+  margin-top: 300px;
+  height: 780px;
+}
+#screen-grid .content-grid {
+  margin-left: 0;
+  padding: 30px 0 30px 75px;
+}
+#screen-grid .grid-viewport.content-grid {
+  padding: 0;
+}
+.main-grid {
+  left: 150px;
+  top: 300px;
+  padding: 30px 0 30px 75px;
+}
+#screen-grid .content-grid__row,
+.content-category {
+  height: 405px;
+  margin: 0;
+}
+#screen-grid .content-grid__row-title,
+.content-category__title {
+  line-height: 30px;
+  margin: 0 0 30px;
+}
+.content-grid__row .content-grid__row-videos,
+.content-category__row {
+  gap: 30px;
+  padding: 14px;
+  margin: -14px 0 -14px -14px;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+.content-card {
+  width: 480px;
+  height: 270px;
+  flex: none;
+}
+#screen-grid .content-card {
+  scroll-margin-top: 90px;
+}
+
+#stage #app {
+  zoom: 1;
+}
+
+/* Keep the native keyboard surface clear of SearchResults at x=700. */
+
+/* Header assets scale with the fixed canvas at 1080p and 4K. */
+.overhang {
+  z-index: auto;
+}
+
+/* Search loader emits .search-query; the hidden input is not the query surface. */

@@ -1,0 +1,69 @@
+# Logs
+*.log
+.env
+*.local
+*.db
+*.sqlite
+
+# Playwright / E2E artifacts
+test-results/
+tmp-sample-pages/
+playwright-report/
+
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+build/
+coverage/
+
+# Tizen/Vizio build artifacts
+.tizen-output/
+.tizen-build/
+.tizen/
+
+# TypeScript build artifacts
+*.js
+*.js.map
+*.d.ts
+*.tsbuildinfo
+
+# Keep ESLint config (root)
+!.eslintrc.js
+
+# Keep vendored LG webOSTV.js SDK (C7 - pinned copy, referenced from index.html)
+!platforms/webos/public/vendor/webOSTV.js
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Platform-specific build dirs
+platforms/webos/tsconfig.tsbuildinfo
+platforms/tizen/tsconfig.tsbuildinfo
+platforms/vizio/tsconfig.tsbuildinfo
+
+# Generated channel icons (produced by scripts/gen-icons.mjs at package time)
+platforms/webos/assets/
+platforms/tizen/assets/
+platforms/vizio/assets/
+__pycache__/
+*.pyc
+.pytest_cache/
+checksums.txt
+provenance.json
+sboms/
+
+# Agent audit scratch (plans, ledgers) lives in the worktree, not in the repo.
+.hermes/
+
+# Reproducibility gate scratch (scripts/check-reproducible-packages.mjs)
+.repro-*/
+
+# Stage-normalisation test scratch (scripts/tests/deterministic-stage.test.mjs)
+.stage-test-*/
