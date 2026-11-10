@@ -1,4 +1,4 @@
-name: Build and focused tests
+name: Full tests and local packages
 on: [push, pull_request]
 permissions:
   contents: read
@@ -14,6 +14,16 @@ jobs:
           node-version: '24'
           cache: npm
       - run: npm ci --ignore-scripts --no-audit --no-fund
-      - run: npm run test:focused
-      - run: npx vitest run platforms/webos/tests/unit/Settings*.test.ts platforms/tizen/tests/unit/Settings*.test.ts platforms/vizio/tests/unit/Settings*.test.ts --maxWorkers=2
+      - run: sudo apt-get update -qq && sudo apt-get install -y --no-install-recommends zip unzip binutils
+      - run: npm test
       - run: npm run build
+      - name: Package webOS
+        run: bash platforms/webos/scripts/package.sh --skip-build
+      - name: Package Tizen
+        run: bash platforms/tizen/scripts/package.sh --skip-build
+      - name: Package Vizio
+        run: bash platforms/vizio/scripts/package.sh --skip-build
+      - name: Assert reproducible package contents
+        run: node scripts/check-reproducible-packages.mjs
+      - name: Generate SHA-256 checksums
+        run: sha256sum platforms/webos/build/*.ipk platforms/tizen/build/*.wgt platforms/vizio/build/*.zip > checksums.txt

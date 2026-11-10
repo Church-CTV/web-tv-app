@@ -24,7 +24,11 @@
     },
     {
       "path": ".github/workflows/ci.yml",
-      "sha256": "a4066f0ebef03eec9932155ec98c65cff2ca2bc35ba858893236e1d9cb020f5f"
+      "sha256": "035e42b94c25b2963c660e6984042088b7a2a9a6928f93f5bead0acc62f0b4be"
+    },
+    {
+      "path": ".github/workflows/release.yaml",
+      "sha256": "37cc1369ce575b7cebf85b3a2fe37c88efc4180d83b13ef9cdeeca11bdafb5cb"
     },
     {
       "path": ".github/workflows/source-hygiene.yml",
@@ -52,7 +56,7 @@
     },
     {
       "path": "DEPENDENCY-LICENSE-INVENTORY.json",
-      "sha256": "540f7f4a5e2afed6c082dbd19c63bf0b10c7cb19869c171ed3e8290a817194e4"
+      "sha256": "f372621e762f756f7e73d6c72f1af5bd081346a35b1bc8e5a8f04231ef09f23e"
     },
     {
       "path": "HYGIENE-REVIEW.json",
@@ -72,11 +76,11 @@
     },
     {
       "path": "README.md",
-      "sha256": "c77aec5b1e4fb77c68c80eb5a2eef07f0fb6c67294277b020a3bd80c898ff3bb"
+      "sha256": "7e632ffff4a6a95aef2fd6f0ad97f41dcdf3f0d65c90f315b39eea920c54900a"
     },
     {
       "path": "RELEASE-STATUS.md",
-      "sha256": "31f2592f593928cc77f4df74d2d188734a39bc111776c3859e68d667ce30c063"
+      "sha256": "26c59210d73ad7537f2e8b2b9509967adb93fc4145ad9b480653b1a16142b606"
     },
     {
       "path": "RUNTIME-CONFIGURATION.md",
@@ -85,6 +89,38 @@
     {
       "path": "SECURITY.md",
       "sha256": "9e7ba5bae1b572990160c8f1f9c295d466e83288f209288eb7e18d766757ccf3"
+    },
+    {
+      "path": "THIRD-PARTY-LICENSES.json",
+      "sha256": "5f7b842e1e171b2046f97a3fbe003b6f8b3be5ede6b60f1aafbd7ee32c21dcef"
+    },
+    {
+      "path": "THIRD-PARTY-NOTICES.md",
+      "sha256": "3aad8aa7d824da264d04f2458d4c7d386f6e36302b70ae08fe9ffba9755fb07f"
+    },
+    {
+      "path": "assets/ASSET-PROVENANCE.md",
+      "sha256": "4f8efed5e8be51fb80a8859633a8d027f5de3c99c40ab07858a124e0f7acf0e6"
+    },
+    {
+      "path": "assets/generated/splash.png",
+      "sha256": "7d4994d1b82fecdfb00958ca6935dd54f576c9aa69b3b2315acc3218bada1708"
+    },
+    {
+      "path": "assets/launcher/roku-120.png",
+      "sha256": "40c38e1efd4ef169c28800bd3dba38d0787f903d386edcf79d5055ff15d2f43e"
+    },
+    {
+      "path": "assets/launcher/roku-130.png",
+      "sha256": "7cd6669153820f3faff797cd093d2952db5b28c741bfc486421eda62bd7c8248"
+    },
+    {
+      "path": "assets/launcher/roku-80.png",
+      "sha256": "84f027b80e5b348202aa2c791666f96e4bd6e4b2e0f4eaa043fa93eb62c079dc"
+    },
+    {
+      "path": "assets/launcher/roku.png",
+      "sha256": "896077623700172c45fa32e35fcab7e32546a6ac36560c7069b4c1b61d5212e6"
     },
     {
       "path": "core/package.json",
@@ -275,12 +311,16 @@
       "sha256": "62acb1510a46b699cc7a6159705f55b44435316d5523ea1fe3cbc848205ca3e2"
     },
     {
+      "path": "docs/reproducible-packages.md",
+      "sha256": "56baff6c5e5be1d1ab2fd0d608ed7695e023fadc392f99472dabb6fcb927e894"
+    },
+    {
       "path": "package-lock.json",
       "sha256": "c19173d34717df6787090ccbeaaf66cfd23566e3f7c6e87e13bfbe51743c2d52"
     },
     {
       "path": "package.json",
-      "sha256": "25f61eda9fd973d0eae405ad7ddb2a0e823c72b88b4cf8c62dd5543290503fe0"
+      "sha256": "b2839fe6a87fe512a68283facfc6d923a169129501b8013337520191e081bd7d"
     },
     {
       "path": "platforms/tizen/config.xml",
@@ -293,6 +333,10 @@
     {
       "path": "platforms/tizen/package.json",
       "sha256": "fa223686e18e7eb122cc06eae25c6f81fd4de92f08316a1676e8abde6e3dbae4"
+    },
+    {
+      "path": "platforms/tizen/scripts/deploy.sh",
+      "sha256": "70b5ee32bd7786024f77b5cb0c9e2ef7c812f5a162571f92de13685946f2330f"
     },
     {
       "path": "platforms/tizen/scripts/package.sh",
@@ -735,6 +779,10 @@
       "sha256": "1c79751f8d940d600030c3f75a76e6b5d56725d56c6184d5bb4c64742c296076"
     },
     {
+      "path": "platforms/vizio/scripts/package.sh",
+      "sha256": "38ac8d5568f459fab7b63e4c22c95da758f8e3fc2f0ed02c1594ccad8c20cfc5"
+    },
+    {
       "path": "platforms/vizio/src/Adapter/Analytics.ts",
       "sha256": "c9f6541d27e1337ca8915539cf770af3d0c8a104b03a8b90e7a9db7c71ec77c5"
     },
@@ -856,7 +904,7 @@
     },
     {
       "path": "platforms/vizio/src/ui/SettingsScreen.ts",
-      "sha256": "333556593bbdea69dd4faa3c2cfbe3ed22542235afb046966286dbfc2bac41b0"
+      "sha256": "288d69655da9efb15230ad70589d2be515d5058ac14925828d16afb822c694a6"
     },
     {
       "path": "platforms/vizio/src/ui/VideoScreen.ts",
@@ -1308,7 +1356,7 @@
     },
     {
       "path": "platforms/webos/src/ui/SettingsScreen.ts",
-      "sha256": "beadc3492ddc64dd1066bc6b5d578beab5356beb49dbf316970da696d7cc0b40"
+      "sha256": "4d23fcd7aeac81d52faed861b6db8cb7fc05f08f68cdc1702915bb9b6bc76fc9"
     },
     {
       "path": "platforms/webos/src/ui/SpatialFocus.ts",
@@ -1504,7 +1552,7 @@
     },
     {
       "path": "platforms/webos/tests/unit/RemoteKeyboardAccessibility.test.ts",
-      "sha256": "60518fcbad14118cbd34fe87c5e5bbd59a9b80250b451167320c9ac3f13c4701"
+      "sha256": "2860ea12be8315a17a016e36dd074597c4d20e56a9210c46fe91bdb951266973"
     },
     {
       "path": "platforms/webos/tests/unit/SearchNavIntegration.test.ts",
@@ -1684,7 +1732,7 @@
     },
     {
       "path": "platforms/webos/tests/unit/utils/PlatformI18n.test.ts",
-      "sha256": "aef76515a96a29c51d794ec9aa719e949b4ff01707862e852a9ba8bb17bbe8eb"
+      "sha256": "28061fac3f4beeb852fb67e7b46e0b4cf524cf99602e521499e45791fe9f9d6d"
     },
     {
       "path": "platforms/webos/tsconfig.json",
@@ -1697,6 +1745,10 @@
     {
       "path": "platforms/webos/vitest.config.ts",
       "sha256": "c935ab01a69c11c60828f05c4200a21aaea28990d1bcccc0daf469428b944ff1"
+    },
+    {
+      "path": "playwright.production.config.ts",
+      "sha256": "4e88d4cf4647f6c1b145e672d071ac5408b9fc9f155a59bd3d32f221a8e072ce"
     },
     {
       "path": "scripts/bundle-budgets.json",
@@ -1924,11 +1976,11 @@
     },
     {
       "path": "scripts/tests/deploy-safety.test.mjs",
-      "sha256": "af3b702ed26ffd837a86b8e5ca903607e567be0773a9a5c52e27a2e071029e38"
+      "sha256": "86409e6bca370ba9f2575509a430685ef8e2a0bf1a155cfd601a5045c7ad90d2"
     },
     {
       "path": "scripts/tests/deploy-workflows.test.mjs",
-      "sha256": "906d26fa9e46a139e2be5390d9b40c22155ccf5b06a77493d92c83973aa4735b"
+      "sha256": "2c633245128fec88741b2f74038b52eced924b0a50a221a9b9d6b0be9aa1f62e"
     },
     {
       "path": "scripts/tests/deterministic-stage.test.mjs",
@@ -1940,7 +1992,7 @@
     },
     {
       "path": "scripts/tests/launcher-provenance.test.mjs",
-      "sha256": "fac5e1b3a6ece5b3f3b6ac03c9497a5db090d7177f99d8f58840ba7dfbd40f2a"
+      "sha256": "3beb14e8715b3bcfd9255b06741034193ef3bdc8cae5cfcc14f8b4e0111f0dad"
     },
     {
       "path": "scripts/tests/pinned-assets.test.mjs",
@@ -2336,7 +2388,7 @@
     },
     {
       "path": "tests/contract/certification-pipeline.test.ts",
-      "sha256": "36d976ae342b724ed276cae96da469375517c2a518abf4165024242d6d50db6a"
+      "sha256": "b36b2d68403987cc83a9d49a2f05ce9743ea23cc7ef5a160fe04a8f9d8eb9169"
     },
     {
       "path": "tests/contract/channel-metadata-integration.test.ts",
@@ -2404,11 +2456,11 @@
     },
     {
       "path": "tests/contract/release-package-meta.test.ts",
-      "sha256": "3f1f932a5c2fdb411cdb2b6d503cb9f61638fbb12302ae5ad0e506404f4c5078"
+      "sha256": "340f1dcfc9f774d126ae53672c045c43cbce862f1633882ce7fa5924e6d5b67d"
     },
     {
       "path": "tests/contract/reproducible-packages.test.ts",
-      "sha256": "7c15e0e9aeed6b2b4e5dc94b0ee4a2e1163d8fc2a10dec94df266fe4fd4f2040"
+      "sha256": "05e67b008b29fc80bf8a38810d0f607a0becbeb1e04bb020237103197df544fc"
     },
     {
       "path": "tests/contract/roku-source.json",
@@ -2416,7 +2468,7 @@
     },
     {
       "path": "tests/contract/roku-vizio-surfaces.test.ts",
-      "sha256": "f6bf19cb38e1795dcd3442e52fcb51c5a00a5566b7d44c35ae104178bacd7bc3"
+      "sha256": "0b1e25689b14a1a40892a8d4e0bf95d53d95c2275e8ccf549b07ce5235685c68"
     },
     {
       "path": "tests/contract/screen-visibility.test.ts",

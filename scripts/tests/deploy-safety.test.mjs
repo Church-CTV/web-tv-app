@@ -5,7 +5,7 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { spawnSync } from 'node:child_process';
 
-function deploy(mode = '', artifact = true) {
+function deploy(mode = '', artifact = true, profile = 'example-profile') {
   const root = mkdtempSync(join(tmpdir(), 'deploy-safety-'));
   try {
     const dir = join(root, 'platforms/tizen');
@@ -13,6 +13,7 @@ function deploy(mode = '', artifact = true) {
     mkdirSync(join(dir, 'build'));
     mkdirSync(join(root, 'bin'));
     copyFileSync('platforms/tizen/scripts/deploy.sh', join(dir, 'scripts/deploy.sh'));
+    copyFileSync('platforms/tizen/config.xml', join(dir, 'config.xml'));
     writeFileSync(join(dir, 'scripts/package.sh'), '#!/bin/bash\necho "package $*" >> "$LOG"\n', {
       mode: 0o755,
     });
@@ -54,6 +55,7 @@ esac
           PATH: `${root}/bin:${process.env.PATH}`,
           LOG: join(root, 'log'),
           MODE: mode,
+          TIZEN_CERT_PROFILE: profile,
         },
         encoding: 'utf8',
       }
@@ -102,9 +104,14 @@ for (const mode of [
     assert.ok((r.log.match(/tizen run/g) || []).length <= 1);
   });
 }
-test('build path signs with existing example-profile profile', () => {
+test('build path signs only with the explicitly configured profile', () => {
   const r = deploy('', false);
   assert.equal(r.status, 0, r.stderr);
   assert.match(r.log, /npm run build/);
   assert.match(r.log, /package --skip-build --sign --profile example-profile --output signed.wgt/);
+});
+test('build path refuses an unconfigured signing profile before building or connecting', () => {
+  const result = deploy('', false, '');
+  assert.notEqual(result.status, 0);
+  assert.doesNotMatch(result.log, /npm|package |sdb|tizen/);
 });

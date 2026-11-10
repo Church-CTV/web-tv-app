@@ -77,7 +77,7 @@ describe('Remote keyboard accessibility', () => {
   });
 
   it('Settings: surviving focusable (Give link) is focusable via D-pad', () => {
-    const screen = renderSettingsScreen();
+    const screen = renderSettingsScreen({ givingUrl: 'https://example.org/give' });
     document.body.appendChild(screen);
     initSettingsScreen(store, () => {});
     // Appearance/Server/Data/Privacy options were removed; the only remaining
@@ -92,7 +92,7 @@ describe('Remote keyboard accessibility', () => {
   });
 
   it('Settings: Enter key does not error on a screen with no data-setting options', () => {
-    const screen = renderSettingsScreen();
+    const screen = renderSettingsScreen({ givingUrl: 'https://example.org/give' });
     document.body.appendChild(screen);
     initSettingsScreen(store, () => {});
     // The former layout/theme options are gone. Focus whatever remains (the

@@ -1,0 +1,7 @@
+{
+  "status": "collected-texts-not-legal-clearance",
+  "scope": "Installed npm production dependencies; development tooling remains in DEPENDENCY-LICENSE-INVENTORY.json. Excludes uninstalled incompatible optional platforms, project ownership, assets, vendor SDKs and non-npm components",
+  "hostPlatform": "linux",
+  "hostArchitecture": "x86_64",
+  "dependencies": []
+}

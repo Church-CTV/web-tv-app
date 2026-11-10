@@ -14,6 +14,9 @@
     "build:webos": "npm run build -w @ctv/webos",
     "build:tizen": "npm run build -w @ctv/tizen",
     "build:vizio": "npm run build -w @ctv/vizio",
+    "package:local": "bash platforms/webos/scripts/package.sh --skip-build && bash platforms/tizen/scripts/package.sh --skip-build && bash platforms/vizio/scripts/package.sh --skip-build",
+    "repro": "node scripts/check-reproducible-packages.mjs",
+    "icons:pin": "node scripts/pin-splash.mjs",
     "test": "vitest run --maxWorkers=2",
     "test:focused": "vitest run tests/contract/public-safe-defaults.test.ts tests/contract/client-config-resolution.test.ts tests/contract/client-config-takes-effect.test.ts tests/contract/analytics-v2-envelope.test.ts core/src/feed/FeedParser.test.ts platforms/webos/tests/unit/StartupRecovery.test.ts platforms/tizen/tests/unit/StartupRecovery.test.ts platforms/vizio/tests/unit/StartupRecovery.test.ts platforms/webos/tests/unit/App.channel-profile.test.ts --maxWorkers=2",
     "lint:check": "eslint . --ext .ts,.tsx"

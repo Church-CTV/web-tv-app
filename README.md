@@ -1,17 +1,19 @@
 # Web TV source candidate
 
 This is a multi-workspace TypeScript application for webOS, Tizen and Vizio.
-It is an incomplete public-source candidate, not a store-ready release.
+It is a private source-available candidate, not a store-ready release.
 
 ## Local development
 
 Use Node 24 and npm. Run `npm ci --ignore-scripts --no-audit --no-fund`,
-`npm run test:focused`, and `npm run build`. Individual builds are
+`npm test`, and `npm run build`. Individual builds are
 `npm run build:webos`, `npm run build:tizen`, and `npm run build:vizio`.
 Build output is under each platform's `dist/`. CI uses a hosted runner,
-read-only repository permissions, and these same focused tests and builds.
-The broader suite is not yet a release gate: it includes tests that rely on
-omitted assets and SDKs, and historical settings behavior. Synthetic channel profiles and feeds cover a subset of the omitted live fixtures.
+read-only repository permissions, and the complete unit/contract suite, builds,
+local packaging and reproducibility gate. Synthetic channel profiles and feeds
+replace live fixtures. The three historical privileged-deployment workflow
+contracts now test the portable distribution's opposite invariant: no signing,
+customer deployment or publication from CI. Runtime tests remain included.
 
 ## Configuration and secrets
 
@@ -29,19 +31,24 @@ this tree. CI requires no deployment secrets.
 
 No giving destination or QR artwork is bundled. webOS can render a validated
 explicit `givingUrl` passed to its settings renderer, but the app does not
-currently provision one; Tizen and Vizio display an unconfigured message.
+currently provision one. Vizio accepts a validated explicit `givingUrl` storage
+value; unconfigured instances have no donation link. Tizen displays an
+unconfigured message.
 Never use customer data or images as defaults.
 
 ## Packaging and omissions
 
 Platform metadata contains placeholder identities, not registered store IDs.
-Launcher icons, splash images, QR images, fonts, vendor SDKs, signed packages,
-private captures, and live-server fixtures are omitted. Provide appropriately
-licensed platform-sized branding and verify metadata before packaging. Legacy
-packaging scripts and their checks may reference omitted assets or tooling;
-they are not part of the CI release path. Store signing, package installation,
-device behavior, accessibility, and platform certification have not been
-verified. The Vizio upload script and customer screenshot script are omitted.
+Customer artwork, QR images, fonts, vendor SDKs, signed packages, private captures
+and live-server fixtures are omitted. Pinned geometric launcher/splash examples
+are generated from repository code; see `assets/ASSET-PROVENANCE.md`. Replace
+example branding and identities with appropriately licensed inputs before store
+submission. `npm run package:local` creates unsigned Tizen/Vizio archives and a
+diagnostic webOS fallback; `npm run repro` rebuilds and compares all three.
+See `docs/reproducible-packages.md` for prerequisites and accepted differences.
+Store signing, package installation, physical-device behavior and certification
+have not been verified. Local Tizen device tooling requires an explicit target
+and signing profile; CI never calls it. No Vizio vendor upload is supplied.
 
 Dependencies are listed in `package-lock.json`; that inventory is not a
 third-party notice or license clearance. Source ownership, dependency and asset

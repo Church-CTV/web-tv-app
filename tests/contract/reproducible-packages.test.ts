@@ -106,9 +106,10 @@ describe('reproducible package contract (WEB-015)', () => {
     );
     expect(
       step,
-      'the reproducibility step must re-sign Tizen with the release profile, or it compares an ' +
-        'unsigned rebuild against the signed artifact the store receives'
-    ).toContain('--tizen-flags');
+      'the portable workflow must remain unsigned and require no store credentials'
+    ).not.toContain('--tizen-flags');
+    expect(yaml).toContain('contents: read');
+    expect(yaml).not.toMatch(/secrets\.|contents: write|gh release|tizen install/);
   });
 
   it('compares two genuinely different artifacts, not one file twice', () => {

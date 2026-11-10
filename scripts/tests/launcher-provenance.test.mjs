@@ -5,15 +5,15 @@ import { describe, expect, it } from 'vitest';
 const read = (path) => readFileSync(path);
 const hash = (data) => createHash('sha256').update(data).digest('hex');
 const launcherAssets = [
-  ['webos', 'icon', 80, '01b99def05333afd9899a083f3659cdece382317211e8147988a5f348fb9865c'],
-  ['webos', 'largeIcon', 130, '6c88bb1584b75c5fb43372e8515b3b9c674f700e81c93bf3e38c8d1258c79984'],
-  ['vizio', '120', 120, 'd159db8df2d2dd95007bf442ad9cae2170c7d9bbfd926cc4161370640409de9a'],
+  ['webos', 'icon', 80, '84f027b80e5b348202aa2c791666f96e4bd6e4b2e0f4eaa043fa93eb62c079dc'],
+  ['webos', 'largeIcon', 130, '7cd6669153820f3faff797cd093d2952db5b28c741bfc486421eda62bd7c8248'],
+  ['vizio', '120', 120, '40c38e1efd4ef169c28800bd3dba38d0787f903d386edcf79d5055ff15d2f43e'],
 ];
 
-describe('Roku launcher assets', () => {
-  it('uses the exact pinned Roku launcher for Tizen', () => {
+describe('Generated generic launcher assets (legacy metadata filenames)', () => {
+  it('uses the exact pinned generic launcher for Tizen', () => {
     const icon = read('assets/launcher/roku.png');
-    expect(hash(icon)).toBe('0e97b3d81089a4bc09b9fed193deed534d6f7def90523ca27121c776c3573dd5');
+    expect(hash(icon)).toBe('896077623700172c45fa32e35fcab7e32546a6ac36560c7069b4c1b61d5212e6');
     expect(read('platforms/tizen/config.xml').toString()).toContain(
       '<icon src="assets/launcher-roku.png"/>'
     );

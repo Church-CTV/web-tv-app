@@ -3,10 +3,10 @@ import { loadSettingsScreen } from '../../platforms/vizio/src/screens/SettingsSc
 import { initSearchScreen } from '../../platforms/vizio/src/ui/SearchScreen';
 
 describe('pinned Roku product surfaces', () => {
-  it('settings renders Channel and Give without unrelated preference controls', async () => {
+  it('settings renders a configured Give link without unrelated preference controls', async () => {
     document.body.innerHTML = '<div id="screen-settings"></div>';
     await loadSettingsScreen({
-      get: () => null,
+      get: (key: string) => key === 'givingUrl' ? 'https://example.org/give' : null,
       set: () => {},
       remove: () => {},
       getAll: () => ({}),
@@ -14,6 +14,11 @@ describe('pinned Roku product surfaces', () => {
     expect(document.querySelector('#screen-settings')?.textContent).toContain('Give');
     expect(document.querySelector('#setting-server-url')).toBeNull();
     expect(document.querySelector('.settings-give__link')).toBe(document.activeElement);
+  });
+  it.each([null, '', 'javascript:alert(1)', 'http://example.org/give', 'https://example.org/\" onclick=\"bad'])('settings fails closed for unconfigured or unsafe giving URL %s', async (givingUrl) => {
+    document.body.innerHTML = '<div id="screen-settings"></div>';
+    await loadSettingsScreen({ get: () => givingUrl, set: () => {}, remove: () => {}, getAll: () => ({}) });
+    expect(document.querySelector('.settings-give__link')).toBeNull();
   });
   it('search supplies an accessible on-screen keyboard and opens on the query', () => {
     const root = document.createElement('div');

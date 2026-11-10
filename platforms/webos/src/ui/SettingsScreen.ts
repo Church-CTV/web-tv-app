@@ -66,8 +66,12 @@ export function renderSettingsScreen(info?: SettingsInfo): HTMLElement {
   container.appendChild(channelCard);
 
   if (info?.givingUrl && isUrlValidForEnvironment(info.givingUrl, true)) {
+    const heading = document.createElement('h3');
+    heading.textContent = 'Give';
+    container.appendChild(heading);
     const link = document.createElement('a');
     link.className = 'settings-give__link';
+    link.tabIndex = 0;
     link.href = info.givingUrl;
     link.target = '_blank';
     link.rel = 'noopener noreferrer';

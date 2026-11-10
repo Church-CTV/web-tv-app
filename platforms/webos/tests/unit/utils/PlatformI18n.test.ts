@@ -70,7 +70,7 @@ describe('Spanish UI integration — webOS screens', () => {
     // Force Spanish before rendering
     setPlatformLocale('es');
     const { renderSettingsScreen } = await import('../../../src/ui/SettingsScreen');
-    const el = renderSettingsScreen();
+    const el = renderSettingsScreen({ givingUrl: 'https://example.org/give' });
     // The Appearance section (Layout/Theme/Language) was removed by design.
     expect(el.textContent).not.toContain('Appearance');
     expect(el.textContent).not.toContain('Apariencia');
@@ -85,7 +85,7 @@ describe('Spanish UI integration — webOS screens', () => {
   it('renders English settings screen when locale is en', async () => {
     // Default English
     const { renderSettingsScreen } = await import('../../../src/ui/SettingsScreen');
-    const el = renderSettingsScreen();
+    const el = renderSettingsScreen({ givingUrl: 'https://example.org/give' });
     // The Appearance section (Layout/Theme/Language) was removed by design.
     expect(el.textContent).not.toContain('Appearance');
     expect(el.textContent).not.toContain('Language');
@@ -99,7 +99,7 @@ describe('Spanish UI integration — webOS screens', () => {
   it('toggles language via platform locale and re-renders settings labels', async () => {
     const { renderSettingsScreen } = await import('../../../src/ui/SettingsScreen');
     document.body.innerHTML = '';
-    const first = renderSettingsScreen();
+    const first = renderSettingsScreen({ givingUrl: 'https://example.org/give' });
     expect(first.textContent).not.toContain('Appearance');
 
     // The in-screen language toggle was removed with the Appearance section,
@@ -112,7 +112,7 @@ describe('Spanish UI integration — webOS screens', () => {
     // layer still resolves the removed-section label in Spanish.
     const i18n = getPlatformI18n();
     expect(i18n.t('settings.appearance')).toBe('Apariencia');
-    const second = renderSettingsScreen();
+    const second = renderSettingsScreen({ givingUrl: 'https://example.org/give' });
     expect(second.textContent).not.toContain('Apariencia');
     expect(second.textContent).toContain('Give');
   });
@@ -199,7 +199,7 @@ describe('Spanish UI integration — webOS screens', () => {
   it('falls back to English when no locale is stored', async () => {
     // No locale stored — should default to English
     const { renderSettingsScreen } = await import('../../../src/ui/SettingsScreen');
-    const el = renderSettingsScreen();
+    const el = renderSettingsScreen({ givingUrl: 'https://example.org/give' });
     // Appearance/Language section removed by design.
     expect(el.textContent).not.toContain('Appearance');
     expect(el.textContent).not.toContain('Language');
