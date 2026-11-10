@@ -1,5 +1,7 @@
 # Web TV source candidate
 
+Permissions, commercial licensing, sales and support: see [SUPPORT.md](SUPPORT.md).
+
 This is a multi-workspace TypeScript application for webOS, Tizen and Vizio.
 It is a private source-available candidate, not a store-ready release.
 
