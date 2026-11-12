@@ -1,6 +1,6 @@
 {
   "revision": "528afc45e030520abd3f9ac6c4a3aed955595b83",
-  "reference": "/root/scratch/webos-roku-reference",
+  "reference": "an internal reference capture (not published)",
   "grid": {
     "source": "components/GridScreen/GridScreen.xml",
     "translation": [150, 300],

@@ -2,6 +2,7 @@
   "formatVersion": 1,
   "platform": "web-tv",
   "sourceRevision": "2bb394a51f571dc65573cf167b4796043409120d",
+  "sourceRevisionNote": "commit in the private origin repository, which is not published; it is provenance of the copied tree, not a link a public clone can resolve",
   "releaseStatus": "public-source-2026-11-12",
   "licenseStatus": "church-ctv-community-source-license-1.0-operative",
   "selfExcluded": true,
@@ -76,11 +77,11 @@
     },
     {
       "path": "LICENSE",
-      "sha256": "c4cabc7f62c3605a09bf406fd62cc231023af1c923ac47b8af3d57e69576d41c"
+      "sha256": "c19a53eebc3ab54c3cee3daff5429a8917afa53a5258e4a667c69fdd61352921"
     },
     {
       "path": "LICENSING-STATUS.md",
-      "sha256": "7317b92d6061f818aebaf8f01188197c836822b26990dcc5a0800d5f49179149"
+      "sha256": "b8039eb12e1411dec66d1dabf18fe97dbd87a6fb3b724b687b7f3bea2210323f"
     },
     {
       "path": "README.md",
@@ -88,7 +89,7 @@
     },
     {
       "path": "RELEASE-STATUS.md",
-      "sha256": "1879b92d5cc004320cfb08a9148e8e9902abd0aa14705ddcd3f99bca42b257b3"
+      "sha256": "0959f03e27127b503195a3f66b3b00a39d0df2793ffc217de1cade1d23d97f62"
     },
     {
       "path": "RUNTIME-CONFIGURATION.md",
@@ -1764,7 +1765,7 @@
     },
     {
       "path": "scripts/bundle-budgets.json",
-      "sha256": "03ec43b627000e50b8a27ac3f738f7325dda285e276f9d49407515ebaafd12e9"
+      "sha256": "707e879ccdaba3ea8bb547c22273a235e00128987c4204bec3031021a34427f1"
     },
     {
       "path": "scripts/capture-certification-pages.mjs",
@@ -1856,7 +1857,7 @@
     },
     {
       "path": "scripts/code-split-config.json",
-      "sha256": "d03ae11f680b47b0eeb78fa215501511e1dede79288a9aff3ed090f2eb3b1e87"
+      "sha256": "02e78ce18d4dbce730a703321a3c2dc137e3d45e952b72add84a671719887b39"
     },
     {
       "path": "scripts/csp.test.mjs",
@@ -2072,7 +2073,7 @@
     },
     {
       "path": "shared/contracts/package.json",
-      "sha256": "892878077489e07ece8dbd505cab4d5f2328c04cc820b5bbae44fcc504be35ab"
+      "sha256": "2fb6e214cd8abb85cf9ea3ae26293dad2135edbd7eeec9e856fc08e6b5e2c3f9"
     },
     {
       "path": "shared/contracts/schedule.ts",
@@ -2388,7 +2389,7 @@
     },
     {
       "path": "shared/ui/package.json",
-      "sha256": "26784e08ebdc718ec75327d64082b4d98b9bef5a9faa7ad291560c66c94a50ec"
+      "sha256": "fc78e005d43fcd3c5f24f93430ff1a30e55ad9f1b576848f9d7c6d73bd2778f8"
     },
     {
       "path": "shared/ui/tsconfig.json",
@@ -2476,7 +2477,7 @@
     },
     {
       "path": "tests/contract/roku-source.json",
-      "sha256": "8a3d71f0697d7a54976e5eee855a31cbae36b617a04076fbdea0f76bc4b89622"
+      "sha256": "7fa7454ad405f10bf9f917475e42aa1fabd6a677636132cb551e55a11d96ef54"
     },
     {
       "path": "tests/contract/roku-vizio-surfaces.test.ts",
