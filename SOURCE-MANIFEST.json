@@ -1964,7 +1964,7 @@
     },
     {
       "path": "scripts/lib/tizen-signature-verify.py",
-      "sha256": "9143d0d6c54ee07b53a1fcc32be5e587feb628c160bae0aea174c7c6fddc4c58"
+      "sha256": "70066c5cf014074a88e0f02af501c033124459b29b6ef196e53b3d5e8586d33e"
     },
     {
       "path": "scripts/package-meta.mjs",

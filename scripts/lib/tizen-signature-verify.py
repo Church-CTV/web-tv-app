@@ -105,13 +105,18 @@ def verify(path):
             # hosted runner as of 2026-11-12, measured) returns KEY-NOT-FOUND for that form and
             # wants the signer certificate itself as the trusted key. Armoring the embedded
             # certificate to PEM and handing it to --pubkey-cert-pem is the form both accept.
-            # Trust here is deliberately the certificate inside the signature, so this proves
-            # payload integrity and never endorsement, which is what the caller reports.
+            # 1.3 also narrowed which key data types are consulted by default, so the lookup
+            # needs --enabled-key-data x509 or it reports KEY-NOT-FOUND for a certificate that
+            # is plainly in the store (measured on the runner; the same failure is reported in
+            # the wild for 1.3.9). --insecure keeps the meaning this tool already has: the
+            # certificate inside the signature is trusted only as a key, with no chain or
+            # trust-time validation, so the result is payload integrity and never endorsement.
             pem_path = root / '.verifier-cert.pem'
             subprocess.run(['openssl', 'x509', '-inform', 'DER', '-in', str(der_path),
                             '-outform', 'PEM', '-out', str(pem_path)], capture_output=True, check=True)
             key_path = pem_path
             result = subprocess.run([binary, '--verify', '--pubkey-cert-pem', str(key_path),
+                                     '--enabled-key-data', 'x509', '--insecure',
                                      '--enabled-reference-uris', 'same-doc,local,remote',
                                      '--id-attr:Id', 'http://www.w3.org/2000/09/xmldsig#:SignatureProperties',
                                      str(root / name)], cwd=root, capture_output=True, text=True, timeout=30)
