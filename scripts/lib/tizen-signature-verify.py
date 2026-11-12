@@ -99,12 +99,19 @@ def verify(path):
             if cert is None or not cert.text:
                 raise ValueError(name + ': embedded signer X509 certificate required')
             der = base64.b64decode(''.join(cert.text.split()), validate=True)
-            cert_path = root / '.verifier-cert.der'
-            cert_path.write_bytes(der)
-            pub = subprocess.run(['openssl', 'x509', '-inform', 'DER', '-in', str(cert_path), '-pubkey', '-noout'], capture_output=True, check=True).stdout
-            key_path = root / '.verifier-key.pem'
-            key_path.write_bytes(pub)
-            result = subprocess.run([binary, '--verify', '--pubkey-pem', str(key_path),
+            der_path = root / '.verifier-cert.der'
+            der_path.write_bytes(der)
+            # xmlsec1 1.2 loads a bare public key from --pubkey-pem; xmlsec1 1.3 (1.3.9 on the
+            # hosted runner as of 2026-11-12, measured) returns KEY-NOT-FOUND for that form and
+            # wants the signer certificate itself as the trusted key. Armoring the embedded
+            # certificate to PEM and handing it to --pubkey-cert-pem is the form both accept.
+            # Trust here is deliberately the certificate inside the signature, so this proves
+            # payload integrity and never endorsement, which is what the caller reports.
+            pem_path = root / '.verifier-cert.pem'
+            subprocess.run(['openssl', 'x509', '-inform', 'DER', '-in', str(der_path),
+                            '-outform', 'PEM', '-out', str(pem_path)], capture_output=True, check=True)
+            key_path = pem_path
+            result = subprocess.run([binary, '--verify', '--pubkey-cert-pem', str(key_path),
                                      '--enabled-reference-uris', 'same-doc,local,remote',
                                      '--id-attr:Id', 'http://www.w3.org/2000/09/xmldsig#:SignatureProperties',
                                      str(root / name)], cwd=root, capture_output=True, text=True, timeout=30)
