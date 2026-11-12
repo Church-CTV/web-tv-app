@@ -2,8 +2,8 @@
   "formatVersion": 1,
   "platform": "web-tv",
   "sourceRevision": "2bb394a51f571dc65573cf167b4796043409120d",
-  "releaseStatus": "private-review-candidate",
-  "licenseStatus": "review-required",
+  "releaseStatus": "public-source-2026-11-12",
+  "licenseStatus": "church-ctv-community-source-license-1.0-operative",
   "selfExcluded": true,
   "files": [
     {
@@ -23,12 +23,24 @@
       "sha256": "2b94d61e51274fcb9ab5e270e62e7b3670fd123a1590020b84bb2b1eccc50d67"
     },
     {
+      "path": ".github/ISSUE_TEMPLATE/bug-report.yml",
+      "sha256": "ca4eadc0a8b4cc5ed1274aa1f4b7c325b119b7dbcb4eefdd77e857a1647cda1f"
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/config.yml",
+      "sha256": "c6f49f72859cb618e100c839e30a4d81ca33993a8efe4e2dfe5872ff0d456be1"
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/question.yml",
+      "sha256": "e9c4f886bb2e427240ba2297cc15ff46e42a51fdab648e2b948d03727e73e7ce"
+    },
+    {
       "path": ".github/workflows/ci.yml",
-      "sha256": "035e42b94c25b2963c660e6984042088b7a2a9a6928f93f5bead0acc62f0b4be"
+      "sha256": "206135ca11728974115415073d394301baa6bb1086e786f55ffb914c800838de"
     },
     {
       "path": ".github/workflows/release.yaml",
-      "sha256": "37cc1369ce575b7cebf85b3a2fe37c88efc4180d83b13ef9cdeeca11bdafb5cb"
+      "sha256": "569bdefeadb926734154fbf81cde10b1430cc55960a78573c75832d469b3d4d8"
     },
     {
       "path": ".github/workflows/source-hygiene.yml",
@@ -48,11 +60,11 @@
     },
     {
       "path": "CONTRIBUTING.md",
-      "sha256": "30dc8276e2fa9163cf49d04aad1488b33bced552273457a3b31142547c3b0b7a"
+      "sha256": "3b46d5499c3c975782e31f5b8936a1d1761bbfa27da14fd1821920f3ef561445"
     },
     {
-      "path": "CONTRIBUTOR-AGREEMENT.draft.md",
-      "sha256": "b5660c88d208c800604179b1db78a24d8f68567200834c2bcb156b44ff892fdd"
+      "path": "CONTRIBUTOR-AGREEMENT.md",
+      "sha256": "9e79847054fc970d56da415a04d2d7510c8167eac8a072297dc7c1ecc2653b91"
     },
     {
       "path": "DEPENDENCY-LICENSE-INVENTORY.json",
@@ -64,23 +76,19 @@
     },
     {
       "path": "LICENSE",
-      "sha256": "e95ced89520be08c953d853c1ac75842aa21ad181c1acf063f2fef2843c1f981"
-    },
-    {
-      "path": "LICENSE.draft.md",
-      "sha256": "60e494c2ad13707a87f865bdabfbe9fc61fd31d887ddf96b339765e4ff155d8a"
+      "sha256": "67685fa103e3bdc856a6b9a92d9ac993a4f48dbebd990822ec429b79f6bd6253"
     },
     {
       "path": "LICENSING-STATUS.md",
-      "sha256": "a4f6ca0419498d5dc24168eb442a2aa820b38a705d5bb7674ec1d9574a67c9e7"
+      "sha256": "7317b92d6061f818aebaf8f01188197c836822b26990dcc5a0800d5f49179149"
     },
     {
       "path": "README.md",
-      "sha256": "720fa9964867b088a009a1bb7da74e068e5537c2f61d80a43792c41d96a67d3e"
+      "sha256": "8d5a843b7cba615eb59f026fad3ac8ccb7cd74fff59f3d65ab09927f359a4481"
     },
     {
       "path": "RELEASE-STATUS.md",
-      "sha256": "26c59210d73ad7537f2e8b2b9509967adb93fc4145ad9b480653b1a16142b606"
+      "sha256": "1879b92d5cc004320cfb08a9148e8e9902abd0aa14705ddcd3f99bca42b257b3"
     },
     {
       "path": "RUNTIME-CONFIGURATION.md",
@@ -88,11 +96,11 @@
     },
     {
       "path": "SECURITY.md",
-      "sha256": "9e7ba5bae1b572990160c8f1f9c295d466e83288f209288eb7e18d766757ccf3"
+      "sha256": "4c3470b4ed9fadb03d8aaedc995237ac392fc2b8eb925298ca8cdcfbb558c166"
     },
     {
       "path": "SUPPORT.md",
-      "sha256": "397056c8ffcab6902272f8221f81d371c107eb308f0e6e8f4a9c7ad672e5b21e"
+      "sha256": "4f275a0229aa0f108b378c5146fd5cfd1ba2c077a2bbd6c026051eade6daa63a"
     },
     {
       "path": "THIRD-PARTY-LICENSES.json",
@@ -128,7 +136,7 @@
     },
     {
       "path": "core/package.json",
-      "sha256": "29d89fca39874f2075e480dc371dc82e2ab228b6ee4f2d4d0bbe073a6b7b5a68"
+      "sha256": "1477bb1622d2c115ae20e2685268f8b92303d68cce03463080ac16ecf324c9c5"
     },
     {
       "path": "core/reference-service/server.test.ts",
@@ -324,7 +332,7 @@
     },
     {
       "path": "package.json",
-      "sha256": "b2839fe6a87fe512a68283facfc6d923a169129501b8013337520191e081bd7d"
+      "sha256": "96b927c617f04382206f468059b254402cdb8eb225b2989faf2283a29e55540a"
     },
     {
       "path": "platforms/tizen/config.xml",
@@ -336,7 +344,7 @@
     },
     {
       "path": "platforms/tizen/package.json",
-      "sha256": "fa223686e18e7eb122cc06eae25c6f81fd4de92f08316a1676e8abde6e3dbae4"
+      "sha256": "2a8cf96cd00a5bf0e5f272433c433e5ea0ec4d2c2c8b77af258a10576701b988"
     },
     {
       "path": "platforms/tizen/scripts/deploy.sh",
@@ -780,7 +788,7 @@
     },
     {
       "path": "platforms/vizio/package.json",
-      "sha256": "1c79751f8d940d600030c3f75a76e6b5d56725d56c6184d5bb4c64742c296076"
+      "sha256": "36fa3386eee1f2a98d7d5bfb0cf0a71cbf5a282051cc0cd1287efacb961dded5"
     },
     {
       "path": "platforms/vizio/scripts/package.sh",
@@ -1240,7 +1248,7 @@
     },
     {
       "path": "platforms/webos/package.json",
-      "sha256": "121c0c9b84cb5972efe3f5b707483c05780d4369b674fa879145c85272625201"
+      "sha256": "7cb16583aa6b93768e02642352fd69f5e1baebf5cb02e0cadb4f748e42d825d8"
     },
     {
       "path": "platforms/webos/playwright.config.ts",

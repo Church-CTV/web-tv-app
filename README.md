@@ -1,9 +1,9 @@
 # Web TV source candidate
 
-Permissions, commercial licensing, sales and support: see [SUPPORT.md](SUPPORT.md).
+Questions about this software: [open an issue](issues) - anyone with a GitHub account may, no approval and no fee. Permissions, commercial licensing, sales and support: [SUPPORT.md](SUPPORT.md). License: Church CTV Community Source License 1.0 ([LICENSE](LICENSE)), and what it does not claim is in [LICENSING-STATUS.md](LICENSING-STATUS.md).
 
 This is a multi-workspace TypeScript application for webOS, Tizen and Vizio.
-It is a private source-available candidate, not a store-ready release.
+It is public source under the license in `LICENSE`, not a store-ready release.
 
 ## Local development
 
@@ -53,6 +53,33 @@ have not been verified. Local Tizen device tooling requires an explicit target
 and signing profile; CI never calls it. No Vizio vendor upload is supplied.
 
 Dependencies are listed in `package-lock.json`; that inventory is not a
-third-party notice or license clearance. Source ownership, dependency and asset
-rights, toolchain compatibility, and legal review remain publication blockers.
-No claim of vendor certification or production readiness is made.
+third-party notice or license clearance. `THIRD-PARTY-LICENSES.json`,
+`DEPENDENCY-LICENSE-INVENTORY.json` and `assets/ASSET-PROVENANCE.md` record the
+production, build-tool and generated-asset positions, as inventories rather than
+clearance. Toolchain compatibility on physical TVs, vendor signing and store
+certification remain NOT RUN. Publishing this source changes no store listing and
+no live channel.
+## License
+
+This repository is licensed under the **Church CTV Community Source License,
+Version 1.0** in `LICENSE` - source available, not OSI open source. In short: an
+eligible church may run, modify and deploy it for its own worship and ministry
+with no license fee, no channel or viewer cap and no obligation to buy hosting;
+a church may hire ordinary technical help and use ordinary infrastructure;
+anyone may build and run it locally to evaluate it or prepare a contribution;
+and independent commercial operation, resale, white-label products and competing
+managed hosting need separate rights from the owner. Deployed modifications carry
+a share-back duty (section 7.2). Commercial and self-hosting licensing, and
+church-eligibility confirmation, go to `dominick253@gmail.com`. Third-party
+components keep their own licenses and notices, which are recorded but not
+replaced by this license.
+
+## Questions
+
+Open an issue in this repository. Anyone may. Tell us the revision, the platform
+and version, and what you expected versus what happened. Please keep credentials,
+member or viewer data, customer names, private hostnames and unpatched security
+problems out of public issues: security reports use the **Report a vulnerability**
+form on the Security tab, and money, contract or permission matters go to
+`dominick253@gmail.com`. There is no response-time promise; see `SUPPORT.md`.
+
